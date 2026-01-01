@@ -1,0 +1,30 @@
+---
+title: "Mappings"
+subtitle: "Crosswalks, transformation rules, and harmonization logic"
+---
+
+## Why mapping docs matter
+
+Mappings are where “interpretation” happens:
+- column crosswalks,
+- unit conversions,
+- depth/horizon rules,
+- categorical harmonization,
+- join keys and entity resolution.
+
+These docs make harmonized products defensible and reproducible.
+
+## What a mapping doc should include
+
+- Inputs and outputs (tables/fields)
+- Rule statements (human-readable)
+- Edge cases and precedence rules
+- Examples (before/after)
+- Version notes (what changed and why)
+
+## Typical mapping topics
+
+- Source → canonical field crosswalks
+- Controlled vocab normalization
+- ID assignment rules
+- Checksums/manifests generated per run

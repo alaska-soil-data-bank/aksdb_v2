@@ -1,0 +1,114 @@
+---
+title: "Home"
+subtitle: "Alaska Soil Data Bank (AKSDB) v2"
+page-layout: full
+toc: true
+---
+
+::: {.callout-note}
+This book is the documentation hub for **AKSDB v2**: a reproducible, citable, and governance-aware system for managing Alaska soil datasets and publishing harmonized products.
+:::
+
+## What is AKSDB v2?
+
+AKSDB v2 is a **data + metadata + governance** system for assembling many heterogeneous soil datasets into a consistent, auditable set of **harmonized outputs**—while preserving provenance back to source datasets.
+
+It is designed around four ideas:
+
+- **Stable IDs** for long-lived references (machines + citations)
+- **Human slugs** for readable URLs and docs navigation
+- **Releases** to publish coherent snapshots of schema + vocab + mappings + products
+- **Checksums/manifests** to guarantee integrity and reproducibility
+
+If you remember one thing: *AKSDB is built so that you can always answer “what is this, where did it come from, and what changed?”*
+
+## How to use this documentation
+
+Use this book in one of three ways:
+
+### 1) Read it end-to-end (recommended for contributors)
+Start with **Concepts** → **Registry** → **Vocab/Glossary** → **Mapping** → **Products** → **Governance**.
+
+### 2) Jump in based on your task
+- **Adding a new source dataset?** Go to **Datasets** and **Mapping**
+- **Publishing a harmonized output?** Go to **Products**, **Standards**, and **Releases**
+- **Changing schema/vocab/rules?** Go to **Governance**
+- **Confused by a term?** Go to **Glossary**
+- **Need allowable values?** Go to **Vocab**
+
+### 3) Use it as a reference
+Think of **Registry / Vocab / Glossary** as the “API docs” for AKSDB.
+
+## Quick links
+
+- **Start here:** [Getting Started](getting-started.qmd)
+- **Mental model:** [Concepts](concepts/concepts--index.qmd)
+- **Metadata spine:** [Registry](registry/registry--index.qmd)
+- **Allowed values:** [Vocab](vocab/vocab--index.qmd)
+- **Definitions:** [Glossary](glossary/glossary--index.qmd)
+- **Source datasets:** [Datasets](datasets/datasets--index.qmd)
+- **Harmonized outputs:** [Products](products/products--index.qmd)
+- **Crosswalk rules:** [Mapping](mapping/mapping--index.qmd)
+- **Standards alignment:** [Standards](standards/standards--index.qmd)
+- **Change process:** [Governance](governance/governance--index.qmd)
+- **Copy/paste patterns:** [Examples](examples/examples--index.qmd)
+
+## The AKSDB object model (bird’s-eye view)
+
+AKSDB documentation is organized around a few “objects” you’ll see everywhere:
+
+| Object | Key | Where documented | Purpose |
+|---|---|---|---|
+| **Dataset** | `ds_iid` | Datasets | A source dataset (pre-harmonization) |
+| **Product** | `product_slug` (+ canonical ID) | Products | A harmonized publishable output |
+| **Entity** | canonical entity ID | Registry | A described thing (table/file/layer/artifact) |
+| **Party** | canonical party ID | Registry | A person or organization |
+| **Role** | controlled vocab | Vocab + Standards | Attribution and responsibility |
+| **Term** | `term_id` | Glossary | Canonical definition used across docs |
+
+## Public vs private (two-repo worldview)
+
+AKSDB v2 usually operates as two surfaces:
+
+- **Private workspace**: raw inputs, restricted datasets, internal notes, intermediate artifacts
+- **Public repo**: harmonized products, documentation, open metadata, citations
+
+This book aims to describe the system in a way that supports both—without leaking private data.
+
+## Guarantees (what AKSDB tries to make true)
+
+AKSDB v2 aims for:
+
+- **Referential stability:** IDs don’t change once published
+- **Reproducibility:** releases can be rebuilt (same inputs + same rules)
+- **Traceability:** products can be traced to datasets and mapping rules
+- **Controlled language:** vocabularies and glossary prevent “semantic drift”
+- **Governed change:** schema and rules evolve with explicit deprecation/versioning
+
+## Where to go next
+
+If you are new to the project:
+
+1. Read [Getting Started](getting-started.qmd)
+2. Read [Concepts](concepts/concepts--index.qmd) (IDs → slugs → releases → checksums)
+3. Skim [Registry](registry/registry--index.qmd) to understand the metadata spine
+4. Use [Examples](examples/examples--index.qmd) to do real work quickly
+
+## Citation and licensing
+
+AKSDB v2 is intended to be **citable** at multiple levels:
+
+- the overall project/release
+- each harmonized product
+- each source dataset (original citation preserved)
+
+(See **Standards** for how we align with DataCite / EML, and how roles map to CRediT.)
+
+## Project status
+
+This documentation is evolving alongside:
+- the registry tables and controlled vocabularies,
+- mapping rules for key sources,
+- and the first “stable” harmonized product releases.
+
+If something feels incomplete, check **Governance** for how to propose changes and add missing pages.

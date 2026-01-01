@@ -1,0 +1,22 @@
+---
+title: "Examples"
+subtitle: "Minimal worked patterns you can copy-paste"
+---
+
+## What belongs here
+
+Examples are small, opinionated templates for:
+- adding a dataset page,
+- adding a product page,
+- writing a mapping doc,
+- defining a new controlled vocabulary,
+- running validation checks,
+- producing a release manifest (checksums + provenance).
+
+## Suggested starter examples
+
+- “Add a dataset” template
+- “Add a product” template
+- “Mapping doc skeleton”
+- “Registry row examples” (packages/entities/parties/roles)
+- “Release checklist” (what must be true to publish)

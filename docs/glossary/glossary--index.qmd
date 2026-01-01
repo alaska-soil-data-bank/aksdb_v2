@@ -1,0 +1,27 @@
+---
+title: "Glossary"
+subtitle: "Canonical definitions of terms used across AKSDB"
+---
+
+## Purpose
+
+The glossary prevents “same word, different meaning” drift.
+
+A glossary entry should:
+- define the term precisely,
+- list synonyms/aliases,
+- specify scope (where it applies),
+- link to related registry fields and standards mappings.
+
+## In this section
+
+- [All terms](terms.qmd)
+- [Organic carbon](organic-carbon.qmd)
+
+## Authoring rule of thumb
+
+If a term appears in:
+- registry field descriptions,
+- mapping rules,
+- product documentation,
+and could be interpreted multiple ways—add a glossary entry.

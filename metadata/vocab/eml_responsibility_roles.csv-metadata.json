@@ -1,0 +1,182 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "en"
+    }
+  ],
+  "url": "eml_responsibility_roles_iso.csv",
+  "dc:title": "EML responsibility roles",
+  "dc:description": "Controlled vocabulary for EML Party RoleType values used in EML associatedParty/role and related elements.",
+  "dialect": {
+    "delimiter": ",",
+    "quoteChar": "\"",
+    "doubleQuote": true,
+    "encoding": "utf-8",
+    "header": true,
+    "skipBlankRows": true
+  },
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "concept_iid",
+        "titles": "concept_iid",
+        "datatype": {
+          "base": "string",
+          "format": "^aksdb:eml_responsibility_role/[A-Za-z0-9_\\-]+$"
+        },
+        "required": true,
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "term_code",
+        "titles": "term_code",
+        "datatype": {
+          "base": "string",
+          "format": "^[A-Za-z][A-Za-z]*$"
+        },
+        "required": true,
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "pref_label",
+        "titles": "pref_label",
+        "datatype": "string",
+        "required": true,
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "alt_labels",
+        "titles": "alt_labels",
+        "datatype": {
+          "base": "string",
+          "format": "^(\\{[^{}]*\\}|)$"
+        },
+        "null": [
+          ""
+        ],
+        "separator": "|"
+      },
+      {
+        "name": "definition",
+        "titles": "definition",
+        "datatype": "string",
+        "required": true,
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "status",
+        "titles": "status",
+        "datatype": {
+          "base": "string",
+          "format": "^(accepted|proposed|deprecated|draft)$"
+        },
+        "required": true,
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "created",
+        "titles": "created",
+        "datatype": {
+          "base": "date",
+          "format": "yyyy-MM-dd"
+        },
+        "required": true,
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "modified",
+        "titles": "modified",
+        "datatype": {
+          "base": "date",
+          "format": "yyyy-MM-dd"
+        },
+        "required": true,
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "scope_note",
+        "titles": "scope_note",
+        "datatype": "string",
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "related_ids",
+        "titles": "related_ids",
+        "datatype": {
+          "base": "string",
+          "format": "^(\\{[^{}]*\\}|)$"
+        },
+        "null": [
+          ""
+        ],
+        "separator": "|"
+      },
+      {
+        "name": "exact_match_ids",
+        "titles": "exact_match_ids",
+        "datatype": "anyURI",
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "close_match_ids",
+        "titles": "close_match_ids",
+        "datatype": {
+          "base": "string",
+          "format": "^(\\{[^{}]*\\}|)$"
+        },
+        "null": [
+          ""
+        ],
+        "separator": "|"
+      },
+      {
+        "name": "replaced_by",
+        "titles": "replaced_by",
+        "datatype": "string",
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "source",
+        "titles": "source",
+        "datatype": "anyURI",
+        "null": [
+          ""
+        ]
+      },
+      {
+        "name": "note",
+        "titles": "note",
+        "datatype": {
+          "base": "string",
+          "format": "^(\\{[^{}]*\\}|)$"
+        },
+        "null": [
+          ""
+        ],
+        "separator": "|"
+      }
+    ],
+    "primaryKey": "concept_iid"
+  }
+}

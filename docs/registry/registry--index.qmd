@@ -1,0 +1,33 @@
+---
+title: "Registry"
+subtitle: "Metadata registry tables: packages, entities, parties, roles"
+---
+
+## What the registry is
+
+The registry is the **metadata spine** of AKSDB v2.
+It defines the “who/what/where/why” across datasets and products:
+
+- **packages**: publishable units / bundles (datasets, products, releases)
+- **entities**: things described by metadata (tables, files, layers, artifacts)
+- **parties**: people and organizations
+- **roles**: how parties relate to entities (author, curator, funder, etc.)
+
+## How to use this section
+
+1. Read the table docs (structure + field meanings)
+2. Use the data dictionary to enforce consistent meanings
+3. Refer back here whenever you add a dataset/product page
+
+## Registry docs
+
+- [packages](packages.qmd)
+- [entities](entities.qmd)
+- [parties](parties.qmd)
+- [data dictionary](data-dictionary.qmd)
+
+## Design notes
+
+- Registry rows should be referencable by canonical IDs
+- Human-readable display names belong in slugs/labels, not in IDs
+- Controlled vocabularies should be referenced, not duplicated

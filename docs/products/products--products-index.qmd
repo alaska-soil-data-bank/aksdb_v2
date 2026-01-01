@@ -1,0 +1,30 @@
+---
+title: "Products"
+subtitle: "Harmonized outputs (keyed by product_slug)"
+---
+
+## What a product is
+
+A **product** is a harmonized, documented output intended for reuse:
+- tables,
+- geospatial layers,
+- derived indicators,
+- releases of cleaned/harmonized datasets.
+
+Products are keyed by `product_slug` (human-friendly), but should also carry canonical IDs and checksums.
+
+## What every product page should include
+
+- What it contains (schema + files)
+- Intended use + non-use cases
+- Inputs (datasets + versions)
+- Mapping rules used
+- Validation checks passed
+- Change notes across releases
+
+## Start here
+
+Create product pages once:
+- mapping rules stabilize,
+- validation checks are defined,
+- and you are ready to publish/release.

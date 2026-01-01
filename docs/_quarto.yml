@@ -1,0 +1,92 @@
+project:
+  type: book
+  # change output-dir to "docs" to publish to gh pages
+  output-dir: htmls
+
+book:
+  title: "Alaska Soil Data Bank (AKSDB) v2 Documentation"
+  author: "Nic Jelinski"
+  date: "01JAN2026"
+  cover-image: "aksdb-badge-02.png"
+  number: "1.0"
+  #navbar: 
+    #right: 
+      #- icon: cc-circle
+      #- href: https://creativecommons.org/licenses/by/4.0/
+      #- aria-label: Creative Commons
+  
+  chapters:
+    - index.qmd
+    - getting-started.qmd
+    - part: "Concepts::concepts"
+        - chapters:
+            - concepts/concepts--index.qmd
+            #- concepts/concepts--ids-slugs.qmd
+            #- concepts/concepts--releases.qmd
+            #- concepts/concepts--checksums-provenance.qmd
+            #- concepts/concepts--schema-vs-data.qmd
+            #- concepts/concepts--file-layout.qmd
+            #- concepts/concepts--naming-conventions.qmd
+            #- concepts/concepts--validation-checks.qmd
+    - part: "Registry::registry"
+        - chapters:
+            - registry/registry--index.qmd
+            - registry/registry--packages.qmd
+            #- registry/registry--entities.qmd
+            #- registry/registry--parties.qmd
+            #- registry/registry--data-dictionary.qmd
+    - part: "Vocabulary::vocab"
+        - chapters:
+            - vocab/vocab--index.qmd
+            - vocab/vocab--controlled-vocabularies-standard.qmd
+            - vocab/vocab--eml-responsibility-roles.qmd
+    - part: "Glossary::glossary"
+        - chapters:
+            - glossary/glossary--index.qmd
+            #- glossary/glossary--terms.qmd
+            #- glossary/glossary--organic-carbon.qmd
+    # - part: ./workflow/workflow--index.qmd
+        # - chapters:
+            # - xxxx.qmd
+    - part: "Datasets::datasets"
+        - chapters:
+            - datasets/datasets--index.qmd
+            #- datasets/datasets--mtj-permafrost.qmd
+            #- datasets/datasets--kpu-gaar.qmd
+    - part: "Products::products"
+        - chapters:
+            - products/products--index.qmd
+    - part: "Mappings::mappings"
+        - chapters:
+            - mappings/mappings--index.qmd
+    - part: "Standards::standards"
+        - chapters:
+            - standards/standards--index.qmd
+            #- standards/standards--eml.qmd
+            #- standards/standards--datacite.qmd
+            #- standards/standards--credit.qmd
+            #- standards/standards--cf-conventions.qmd
+    - part: "Governance::governance"
+        - chapters:
+            - governance/governance--index.qmd
+            #- governance/governance--schema-versioning.qmd
+            #- governance/governance--adding-a-field.qmd
+            #- governance/governance--deprecating-a-field.qmd
+            #- governance/governance--glossary-rules.qmd
+            #- governance/governance--roles-and-attributes.qmd
+    - part: "Examples::examples"
+        - chapters:
+            - examples/examples--index.qmd
+    # - further-opportunities.qmd
+    # - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

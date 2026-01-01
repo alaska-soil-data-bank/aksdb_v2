@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use AKSDB v2 or its harmonized data products, please cite the project and the relevant upstream datasets (see CITATION.md)."
+title: "AKSDB v2: Alaska Soil Database harmonization project"
+type: dataset
+authors:
+  - family-names: "Jelinski"
+    given-names: "Nic"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "REPLACE_WITH_REPO_URL"
+license: "CC-BY-4.0"
+version: "2.0.0"
+date-released: "2025-12-31"
+
+preferred-citation:
+  type: dataset
+  title: "AKSDB v2: Harmonized soil profile data products"
+  authors:
+    - family-names: "Jelinski"
+      given-names: "Nic"
+  version: "2.0.0"
+  year: 2025
+  publisher: "University of Minnesota"
+  # doi: "10.xxxx/xxxxx"   # add when minted
+  url: "REPLACE_WITH_LANDING_PAGE_URL"

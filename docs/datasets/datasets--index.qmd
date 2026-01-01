@@ -1,0 +1,29 @@
+---
+title: "Datasets"
+subtitle: "Per-source dataset documentation (keyed by ds_iid)"
+---
+
+## What a dataset page is
+
+A dataset page documents a **source dataset** before (or alongside) harmonization:
+- what it is and where it came from,
+- spatial/temporal coverage,
+- collection and processing notes,
+- access constraints (public vs private),
+- how it maps into AKSDB v2 entities/products.
+
+Each dataset page is keyed by `ds_iid`.
+
+## What every dataset page should include
+
+- Summary + citation
+- Access + license
+- Provenance (who, when, how acquired)
+- Primary artifacts (tables/files/layers)
+- Known issues and QC notes
+- Mapping links (crosswalks used)
+
+## Dataset pages
+
+- [MTJ Permafrost](datasets--mtj-permafrost.qmd)
+- [KPU GAAR](datasets--kpu-gaar.qmd)

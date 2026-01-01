@@ -1,0 +1,30 @@
+---
+title: "Governance"
+subtitle: "How schema, docs, vocab, and mappings change over time"
+---
+
+## What governance covers
+
+Governance defines:
+- how you propose changes,
+- how you version them,
+- how you deprecate safely,
+- what guarantees users can rely on.
+
+This is what keeps AKSDB v2 coherent as it grows.
+
+## Pages
+
+- [Schema versioning](governance--schema-versioning.qmd)
+- [Adding a field](governance--adding-a-field.qmd)
+- [Deprecating a field](governance--deprecating-a-field.qmd)
+- [Glossary rules](governance--glossary-rules.qmd)
+- [Roles and attributes](governance--roles-and-attributes.qmd)
+
+## Governance principle (default)
+
+Prefer:
+- additive changes,
+- explicit deprecations,
+- compatibility notes per release,
+over silent breaking changes.

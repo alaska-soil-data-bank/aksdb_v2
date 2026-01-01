@@ -1,0 +1,169 @@
+# Controlled vocabularies standard
+
+This project uses **controlled vocabularies (CVs)** to standardize categorical values across tables, pipelines, and exports. A controlled vocabulary is a curated list of allowed concepts with stable identifiers, labels, definitions, and governance metadata. Using CVs improves interoperability, reduces ambiguity, and enables consistent joins across harmonized datasets.
+
+## What a controlled vocabulary CSV represents
+
+- **One CSV = one vocabulary** (one list of concepts for one topic such as methods, roles, units, properties).
+- **One row = one concept**.
+- The **machine value** used in data products is stored in `term_code`.
+- The **stable project identifier** used for joins and governance is stored in `concept_iid`.
+
+## Identifiers and namespaces
+
+- `concept_iid` is a stable identifier minted by this project (typically in the `aksdb:` namespace).
+- Even if a term originates from an external standard (EML, ISO, etc.), the project still mints its own `concept_iid` so the record can be versioned, governed, and referenced consistently.
+- External provenance and mappings are captured in `source`, `exact_match_ids`, and `close_match_ids`.
+
+## Standard column set
+
+All controlled vocabulary CSVs in this project use the following columns:
+
+- `concept_iid`
+- `term_code`
+- `pref_label`
+- `alt_labels`
+- `definition`
+- `status`
+- `created`
+- `modified`
+- `scope_note`
+- `related_ids`
+- `exact_match_ids`
+- `close_match_ids`
+- `replaced_by`
+- `source`
+- `note`
+
+### Governance fields
+
+- `status` indicates lifecycle state. Allowed values:
+  - `accepted` (current valid term)
+  - `proposed` (candidate term under review)
+  - `deprecated` (do not use for new data; may have a replacement)
+  - `draft` (work-in-progress, not ready for use)
+- `created` and `modified` track history and **must be ISO 8601**: `YYYY-MM-DD`.
+
+### Labels and definitions
+
+- `pref_label` is the human-facing label used in UIs and reports.
+- `alt_labels` captures synonyms, abbreviations, and common variants to improve search and mapping.
+- `definition` is a short, stable description of the concept’s meaning.
+- `scope_note` clarifies boundaries, intended usage, and edge cases.
+
+### Relationships and mappings
+
+- `related_ids` can point to other `concept_iid` values when a useful non-hierarchical relationship exists.
+- `exact_match_ids` is for external identifiers that are equivalent in meaning (for example, an authoritative schema or standard identifier).
+- `close_match_ids` is for external identifiers that are similar but not strictly equivalent (crosswalks).
+- `replaced_by` supports deprecation by pointing to the preferred successor concept when `status=deprecated`.
+
+## Multi-value encoding convention
+
+When a single cell contains multiple values, the project enforces this encoding:
+
+- Enclose the set in curly braces
+- Separate values with pipes
+
+Examples:
+
+- `alt_labels = {EC|electrical conductivity|conductivity}`
+- `related_ids = {aksdb:foo/a|aksdb:foo/b}`
+
+Empty cells represent “no value”.
+
+## CSV quoting and commas
+
+CSV uses commas to separate fields. If a cell contains a comma, a newline, or a double quote, the value must be quoted using double quotes. Where possible, keep definitions and notes free of commas to minimize quoting and reduce noisy diffs.
+
+## Regex and validation
+
+Regular expressions (regex) are used in validation to ensure consistent value shapes. Common uses:
+
+- Enforce identifier formats (for example, `concept_iid` prefix rules)
+- Enforce machine code formats (`term_code`)
+- Validate multi-value fields (either empty or `{...}` with `|` separators)
+- Validate date formats (`created`, `modified`)
+
+Recommended regex checks:
+
+- Multi-value cell is either empty or wrapped in braces:
+  - `^(\{[^{}]*\}|)$`
+- Basic term code (letters only, supports CamelCase):
+  - `^[A-Za-z][A-Za-z]*$`
+- ISO date:
+  - `^\d{4}-\d{2}-\d{2}$`
+
+## CSVW metadata sidecars
+
+Each controlled vocabulary CSV should include a matching CSVW metadata file:
+
+- `<vocab>.csv-metadata.json`
+
+The CSVW file provides machine-readable descriptions of:
+- column datatypes
+- required fields
+- controlled enums (such as `status`)
+- separators for multi-value fields
+
+This supports automated validation and consistent parsing across tools.
+
+### What CSVW is for
+
+CSVW (CSV on the Web) is a W3C standard for describing CSV files with machine-readable metadata. In this project, the CSVW sidecar is used as the **authoritative schema** for each vocabulary so that scripts and pipelines do not have to guess how to interpret the CSV.
+
+### How to interpret the CSVW file
+
+Key fields you will see:
+
+- `url`: which CSV file this metadata describes.
+- `dialect`: how the CSV is formatted (delimiter, quote character, encoding, and whether there is a header row).
+- `tableSchema.primaryKey`: the column or columns that uniquely identify rows.
+- `tableSchema.columns`: per-column rules:
+  - `name`: the exact column header in the CSV.
+  - `required`: whether empty values are allowed.
+  - `null`: which values are treated as “missing” (this project uses `""`).
+  - `datatype`: the expected datatype (for example `date`, `string`, `anyURI`) and optionally a `format` pattern (regex-like).
+  - `separator`: how to split multi-valued cells (this project uses `|` in columns whose CSV values are encoded as `{a|b|c}`).
+
+### How to use CSVW in this project
+
+Use the CSVW file in any workflow that reads vocabularies:
+
+- **Validation (recommended in CI):**
+  - check required fields are present
+  - check `status` is one of the allowed enum values
+  - check `created` and `modified` are valid ISO dates
+  - check multi-value fields conform to `{...}` and split cleanly on `|`
+- **Parsing (ETL and ingestion):**
+  - use the `separator` metadata to parse multi-value fields into arrays/lists consistently
+  - use `datatype` to parse and type-cast fields consistently (for example dates)
+- **Documentation generation (optional):**
+  - column names and constraints can be derived from CSVW to keep validation rules synchronized with the CSV
+
+### Canonical multi-value parsing rule
+
+For any column that is both:
+- encoded as `{a|b|c}` in the CSV, and
+- has `"separator": "|"` in CSVW,
+
+the canonical parse is:
+
+1) if blank → empty list  
+2) else strip leading `{` and trailing `}`  
+3) split on `|`  
+4) trim whitespace on each value
+
+## Documentation format for each vocabulary
+
+Each vocabulary must have a companion Markdown documentation page that includes:
+
+1. A brief narrative introduction (rationale + what the vocabulary is for)
+2. A “Controlled vocabulary file” section with:
+   - controlled vocabulary name / table name (filename)
+   - label (human-readable label)
+3. A “Columns” section with a table:
+   - Column label (human-readable)
+   - Column name (exact CSV header)
+   - Description (detailed)
+4. A “References” section that points to the authority defining the terms and any mapping standards

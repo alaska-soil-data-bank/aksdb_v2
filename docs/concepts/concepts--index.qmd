@@ -1,0 +1,55 @@
+---
+title: "Concepts"
+subtitle: "The AKSDB v2 mental model: IDs → slugs → releases → checksums"
+---
+
+## Why these concepts exist
+
+AKSDB v2 is designed for:
+- reproducibility (same inputs → same outputs),
+- long-lived references (stable identifiers),
+- safe evolution (versioning + deprecation),
+- traceability (checksums + provenance).
+
+Everything else in the docs assumes this mental model.
+
+## The core chain
+
+### 1) IDs
+**IDs** are canonical, stable identifiers for machines and long-term references.
+They should be:
+- unique,
+- immutable once published,
+- never “meaningful” in a way that invites reinterpretation.
+
+### 2) Slugs
+**Slugs** are human-friendly names used for URLs and docs navigation.
+They can change (with redirects / alias rules), but must never break ID-based references.
+
+### 3) Releases
+A **release** is a named snapshot of:
+- schema,
+- vocab,
+- mappings,
+- products (harmonized outputs),
+with explicit compatibility expectations.
+
+### 4) Checksums
+**Checksums** anchor trust:
+- detect unintended change,
+- support manifests,
+- enable provenance (“this file came from these inputs under this mapping version”).
+
+## In this section
+
+- **IDs & slugs**: what is stable, what can change, and how aliases work  
+- **Releases**: what constitutes a release, and how we version it  
+- **Checksums & provenance**: manifests, file integrity, and lineage  
+- **Validation checks**: what we assert about tables and outputs  
+
+## Suggested next pages
+
+- [IDs & slugs](ids-slugs.qmd)
+- [Releases & versioning](releases.qmd)
+- [Checksums & provenance](checksums-provenance.qmd)
+- [Validation checks](validation-checks.qmd)

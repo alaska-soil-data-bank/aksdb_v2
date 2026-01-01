@@ -1,0 +1,29 @@
+---
+title: "Standards"
+subtitle: "How AKSDB aligns with EML, DataCite, and CRediT"
+---
+
+## Purpose
+
+Standards provide interoperability and citation-quality metadata.
+
+This section documents:
+- which standards you reference,
+- what parts you implement,
+- how registry fields map to them,
+- where you intentionally diverge (and why).
+
+## Pages
+
+- [EML](standards--eml.qmd)
+- [DataCite](standards--datacite.qmd)
+- [CRediT](standards--credit.qmd)
+- [CF Conventions](standards--cf-conventions.qmd)
+
+## Practical output
+
+The goal is to support:
+- a strong `CITATION.cff`,
+- dataset/product citations,
+- machine-readable exports (where appropriate),
+- consistent attribution via roles.

@@ -1,0 +1,25 @@
+---
+title: "Vocab"
+subtitle: "Controlled vocabularies: enums, roles, status fields"
+---
+
+## What belongs here
+
+Anything that should be **standardized** and **validated** belongs in `vocab/`, including:
+- roles (aligned with CRediT where applicable),
+- status fields (draft/published/deprecated),
+- entity types,
+- license identifiers,
+- field-level enums.
+
+## How vocab is used
+
+- Registry tables reference vocab values
+- Validation checks assert only allowed values appear
+- Releases snapshot vocab at a point in time
+
+## Start here
+
+- Roles vocabulary (registry + standards)
+- Status vocabulary (draft → published → deprecated)
+- Shared enums used across tables
