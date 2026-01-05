@@ -1,9 +1,4 @@
----
-title: "Home"
-subtitle: "Alaska Soil Data Bank (AKSDB) v2"
-page-layout: full
-toc: true
----
+# Home {.unnumbered}
 
 ::: {.callout-note}
 This book is the documentation hub for **AKSDB v2**: a reproducible, citable, and governance-aware system for managing Alaska soil datasets and publishing harmonized products.

@@ -1,10 +1,12 @@
-# packages
+# packages::Packages
 
+::: {.callout-note title="Notes"}
 **File:** `metadata/registry/packages.csv`  
 **Grain:** **1 row = 1 released snapshot** (a frozen package)  
 **Purpose:** Dataset/release-level metadata: identity, provenance, coverage, rights, and integrity checks for a snapshot.
 
-## Keys & relationships
+**Keys & relationships**
+
 - **Primary key:** `release_id`
 - **Stable concept key:** `dataset_id`
 - **Immutable handle:** `ds_iid` (slug; used in scripting; must not change once assigned)
@@ -12,411 +14,62 @@
   - `entities.release_id` → `packages.release_id`
   - `party_roles.release_id` → `packages.release_id`
 
-## Required minimum (recommended)
+**Required minimum (recommended)**
+
 - `dataset_id`, `ds_iid`, `release_id`, `release_slug`
 - `title`, `abstract`
 - `ingest_date`
 - `license` (or explicit `intellectual_rights`)
 - `file_manifest_path`, `manifest_sha256`, `file_count`, `total_bytes`
 - ≥1 creator + ≥1 contact via `party_roles`
+:::
 
----
 
-## dataset_id
+The **packages** registry is the authoritative *release ledger* for AKSDB. Each row records a **frozen snapshot** of a dataset (a published package) with a stable identity, provenance pointers, basic descriptive metadata, coverage fields, rights/access information, and integrity checks (manifest + checksums). Downstream, this table drives dataset/release index pages, enables deterministic joins to `entities` and `party_roles`, and supports reproducible citation/export to metadata standards (e.g., DataCite/EML) by providing a single, versioned source of truth for each released package.
 
-**Label:** Dataset concept ID  
-**Table:** packages  
-**Type:** string  
-**Format:** UUID (recommend UUIDv4)  
-**Required:** yes  
-**Nullable:** no  
-**Cardinality:** 1  
-**Immutable:** yes  
-**Primary/Foreign key:** —  
-**Default:** —
+## Columns
 
-### Definition
-Stable identifier for the dataset **concept** across time (all releases/snapshots share the same `dataset_id`).
-
-### Purpose
-Enables stable joins and lineage even if names/slugs change (though `ds_iid` should be immutable too).
-
-### Validation rules
-- Must be a valid UUID string.
-- For a given `ds_iid`, `dataset_id` must be consistent across all rows.
-
-### Examples
-- Valid: `550e8400-e29b-41d4-a716-446655440000`
-
----
-
-## ds_iid
-
-**Label:** Dataset handle (slug)  
-**Table:** packages  
-**Type:** string  
-**Format:** `^[a-z0-9]+(-[a-z0-9]+)*$`  
-**Required:** yes  
-**Nullable:** no  
-**Cardinality:** 1  
-**Immutable:** yes  
-**Primary/Foreign key:** —  
-**Default:** —
-
-### Definition
-Immutable, human-readable dataset handle used in scripting and folder naming.
-
-### Purpose
-Stable, memorable reference to dataset concept (e.g., in pipelines, CLIs, configuration).
-
-### Allowed values
-- Lowercase, hyphen-separated tokens; no spaces/underscores.
-- Must be globally unique across the registry; never reused.
-
-### Validation rules
-- Must match regex.
+| Column label | Column name | Type | Format | Description |
+| --- | --- | --- | --- | --- | 
+| Dataset concept ID | dataset_id | string | [UUIDv4](../glossary/glossary--terms.qmd#term-uuidv4) | Stable identifier for the dataset concept across time (all releases/snapshots share the same dataset_id). Enables stable joins and lineage even if names/slugs change (though `ds_iid` should be immutable too). For a given `ds_iid`, `dataset_id` must be consistent across all rows. *Example: `550e8400-e29b-41d4-a716-446655440000`* |
+| Dataset handle (slug) | ds_iid | string | `^[a-z0-9]+(-[a-z0-9]+)*$` | Immutable, human-readable dataset handle used in scripting and folder naming. | **Required:** yes<br><br>**Definition:** Immutable, human-readable dataset handle used in scripting and folder naming.<br><br>**Purpose:** Stable, memorable reference to dataset concept (e.g., in pipelines, CLIs, configuration).<br><br>**Allowed values:** - Lowercase, hyphen-separated tokens; no spaces/underscores.
+- Must be globally unique across the registry; never reused.<br><br>**Validation rules:** - Must match regex.
 - Must be unique across all `packages` rows (recommended).
-- Must not change for a given `dataset_id`.
+- Must not change for a given `dataset_id`.<br><br>**Examples:** - Valid: `nrcs-nasis-pedons-ak`
+- Invalid: `NRCS_NASIS_AK` — uppercase/underscore |
+| Release (snapshot) ID | release_id | string | UUID (recommend UUIDv7) | Unique identifier for a frozen snapshot of a dataset at a point in time. | **Required:** yes<br><br>**Definition:** Unique identifier for a frozen snapshot of a dataset at a point in time.<br><br>**Purpose:** The join key for all release-scoped metadata: entities/files, roles, QA/QC, derived products.<br><br>**Validation rules:** - Must be unique within `packages`.
+- Must be a valid UUID. |
+| Release (snapshot) slug | release_slug | string | parseable slug (project convention) | Human-readable identifier for the snapshot, typically derived from ds_iid + dates + internal counter. | **Required:** yes<br><br>**Definition:** Human-readable identifier for the snapshot, typically derived from `ds_iid` + dates + internal counter.<br><br>**Purpose:** Readable folder names and provenance in logs/artifacts.<br><br>**Validation rules:** - Must start with `ds_iid` (recommended).
+- Must be unique within the registry.<br><br>**Examples:** - `nrcs-nasis-pedons-ak--ing20251231--r003` |
+| Title | title | string |  | Human-readable dataset/release title appropriate for citation. | **Required:** yes<br><br>**Definition:** Human-readable dataset/release title appropriate for citation. |
+| Abstract | abstract | string |  | Short description of what the dataset/release contains and why it exists. | **Required:** yes<br><br>**Definition:** Short description of what the dataset/release contains and why it exists. |
+| Purpose | purpose | string |  | Optional statement of intended use / motivation (helpful for EML-style metadata). | **Required:** no<br><br>**Definition:** Optional statement of intended use / motivation (helpful for EML-style metadata). |
+| Source organization | source_org | string |  | Organization responsible for producing or stewarding the upstream dataset. | **Required:** recommended yes<br><br>**Definition:** Organization responsible for producing or stewarding the upstream dataset. |
+| Source citation | source_citation | string |  | Preferred citation text for the upstream dataset (include DOI if available). | **Required:** recommended yes<br><br>**Definition:** Preferred citation text for the upstream dataset (include DOI if available). |
+| Landing page URL | landing_page_url | string |  | Public landing page for the dataset or release (repository record, project page). | **Required:** no<br><br>**Definition:** Public landing page for the dataset or release (repository record, project page). |
+| DOI | doi | string |  | DOI for the dataset release/version, if minted. | **Required:** no<br><br>**Definition:** DOI for the dataset release/version, if minted. |
+| EML package identifier | eml_packageId | string |  | Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC). | **Required:** no<br><br>**Definition:** Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC). |
+|  | repo_scope |  |  |  |  |
+|  | repo_identifier |  |  |  |  |
+| Repository identifiers | repo_revision | string |  | Optional split fields for package identification/versioning within a repository. | **Required:** no<br><br>**Definition:** Optional split fields for package identification/versioning within a repository. |
+|  | coverage_start |  |  |  |  |
+| Coverage window | coverage_end | date or string | `YYYY-MM-DD` (preferred) or `YYYY`/`YYYY-MM` if partial | Temporal extent of the observations represented in this release (not ingest date). | **Required:** no<br><br>**Definition:** Temporal extent of the *observations* represented in this release (not ingest date). |
+| Published/updated date (upstream) | published_date | date |  | Provider-reported publication or last-updated date for the upstream dataset snapshot. | **Required:** no<br><br>**Definition:** Provider-reported publication or last-updated date for the upstream dataset snapshot. |
+| Ingest date | ingest_date | date |  | Date this snapshot was frozen/ingested into your harmonization pipeline. | **Required:** yes<br><br>**Definition:** Date this snapshot was frozen/ingested into your harmonization pipeline. |
+|  | geo_description |  |  |  |  |
+|  | west |  |  |  |  |
+|  | east |  |  |  |  |
+|  | south |  |  |  |  |
+| Spatial coverage (bbox + description) | north | string + float |  | Overall spatial footprint/description for the release; bbox coordinates in decimal degrees. | **Required:** no<br><br>**Definition:** Overall spatial footprint/description for the release; bbox coordinates in decimal degrees. |
+| Spatial reference | spatial_reference | string |  | EPSG code, WKT, or other SRS description if relevant. | **Required:** no<br><br>**Definition:** EPSG code, WKT, or other SRS description if relevant. |
+| License | license | string |  | License identifier (prefer SPDX where possible). | **Required:** recommended yes<br><br>**Definition:** License identifier (prefer SPDX where possible). |
+| Intellectual rights / usage constraints | intellectual_rights | string |  | Free-text rights statement when a standard license is not sufficient. | **Required:** no<br><br>**Definition:** Free-text rights statement when a standard license is not sufficient. |
+|  | methods_summary |  |  |  |  |
+| Methods & processing | processing_summary | string |  | High-level methods and any key processing steps performed for this release. | **Required:** no<br><br>**Definition:** High-level methods and any key processing steps performed for this release. |
+| Upstream lineage | upstream_release_ids | string | `&#124;`-separated list of `release_id` | Release IDs that this release derives from or depends on (lineage). | **Required:** no<br><br>**Definition:** Release IDs that this release derives from or depends on (lineage). |
+| File checksum manifest path | file_manifest_path | string |  | Relative path (within release folder) to the per-file checksum manifest (e.g., checksums.sha256). | **Required:** yes<br><br>**Definition:** Relative path (within release folder) to the per-file checksum manifest (e.g., `checksums.sha256`). |
+| Dataset fingerprint (manifest hash) | manifest_sha256 | string | sha256 hex | SHA-256 of the checksum manifest file. | **Required:** yes<br><br>**Definition:** SHA-256 of the checksum manifest file. Represents the integrity of the entire release contents. |
+| File count | file_count | int |  | Number of files/entities included in this release. | **Required:** yes<br><br>**Definition:** Number of files/entities included in this release. |
+| Total bytes | total_bytes | int |  | Sum of size_bytes across entities for this release. | **Required:** yes<br><br>**Definition:** Sum of `size_bytes` across entities for this release. |
+| Notes | notes | string |  | Free-text notes, known limitations, quirks, etc. | **Required:** no<br><br>**Definition:** Free-text notes, known limitations, quirks, etc. |
 
-### Examples
-- Valid: `nrcs-nasis-pedons-ak`
-- Invalid: `NRCS_NASIS_AK` — uppercase/underscore
-
----
-
-## release_id
-
-**Label:** Release (snapshot) ID  
-**Table:** packages  
-**Type:** string  
-**Format:** UUID (recommend UUIDv7)  
-**Required:** yes  
-**Nullable:** no  
-**Cardinality:** 1  
-**Immutable:** yes  
-**Primary/Foreign key:** **PK**  
-**Default:** —
-
-### Definition
-Unique identifier for a frozen snapshot of a dataset at a point in time.
-
-### Purpose
-The join key for all release-scoped metadata: entities/files, roles, QA/QC, derived products.
-
-### Validation rules
-- Must be unique within `packages`.
-- Must be a valid UUID.
-
----
-
-## release_slug
-
-**Label:** Release (snapshot) slug  
-**Table:** packages  
-**Type:** string  
-**Format:** parseable slug (project convention)  
-**Required:** yes  
-**Nullable:** no  
-**Cardinality:** 1  
-**Immutable:** recommended yes  
-**Primary/Foreign key:** —  
-**Default:** —
-
-### Definition
-Human-readable identifier for the snapshot, typically derived from `ds_iid` + dates + internal counter.
-
-### Purpose
-Readable folder names and provenance in logs/artifacts.
-
-### Validation rules
-- Must start with `ds_iid` (recommended).
-- Must be unique within the registry.
-
-### Examples
-- `nrcs-nasis-pedons-ak--ing20251231--r003`
-
----
-
-## title
-
-**Label:** Title  
-**Type:** string  
-**Required:** yes  
-**Immutable:** no
-
-### Definition
-Human-readable dataset/release title appropriate for citation.
-
----
-
-## abstract
-
-**Label:** Abstract  
-**Type:** string  
-**Required:** yes  
-**Immutable:** no
-
-### Definition
-Short description of what the dataset/release contains and why it exists.
-
----
-
-## purpose
-
-**Label:** Purpose  
-**Type:** string  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-Optional statement of intended use / motivation (helpful for EML-style metadata).
-
----
-
-## source_org
-
-**Label:** Source organization  
-**Type:** string  
-**Required:** recommended yes  
-**Immutable:** no
-
-### Definition
-Organization responsible for producing or stewarding the upstream dataset.
-
----
-
-## source_citation
-
-**Label:** Source citation  
-**Type:** string  
-**Required:** recommended yes  
-**Immutable:** no
-
-### Definition
-Preferred citation text for the upstream dataset (include DOI if available).
-
----
-
-## landing_page_url
-
-**Label:** Landing page URL  
-**Type:** string  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-Public landing page for the dataset or release (repository record, project page).
-
----
-
-## doi
-
-**Label:** DOI  
-**Type:** string  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-DOI for the dataset release/version, if minted.
-
----
-
-## eml_packageId
-
-**Label:** EML package identifier  
-**Type:** string  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC).
-
----
-
-## repo_scope
-## repo_identifier
-## repo_revision
-
-**Label:** Repository identifiers  
-**Type:** string  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-Optional split fields for package identification/versioning within a repository.
-
----
-
-## coverage_start
-## coverage_end
-
-**Label:** Coverage window  
-**Type:** date or string  
-**Format:** `YYYY-MM-DD` (preferred) or `YYYY`/`YYYY-MM` if partial  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-Temporal extent of the *observations* represented in this release (not ingest date).
-
-### Edge cases
-- Unknown: leave blank.
-- Partial precision: allow year/month formats but document.
-
----
-
-## published_date
-
-**Label:** Published/updated date (upstream)  
-**Type:** date  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-Provider-reported publication or last-updated date for the upstream dataset snapshot.
-
----
-
-## ingest_date
-
-**Label:** Ingest date  
-**Type:** date  
-**Required:** yes  
-**Immutable:** yes (per release)
-
-### Definition
-Date this snapshot was frozen/ingested into your harmonization pipeline.
-
----
-
-## geo_description
-## west
-## east
-## south
-## north
-
-**Label:** Spatial coverage (bbox + description)  
-**Type:** string + float  
-**Required:** no  
-**Immutable:** no
-
-### Definition
-Overall spatial footprint/description for the release; bbox coordinates in decimal degrees.
-
----
-
-## spatial_reference
-
-**Label:** Spatial reference  
-**Type:** string  
-**Required:** no
-
-### Definition
-EPSG code, WKT, or other SRS description if relevant.
-
----
-
-## license
-
-**Label:** License  
-**Type:** string  
-**Required:** recommended yes  
-**Immutable:** no
-
-### Definition
-License identifier (prefer SPDX where possible).
-
----
-
-## intellectual_rights
-
-**Label:** Intellectual rights / usage constraints  
-**Type:** string  
-**Required:** no
-
-### Definition
-Free-text rights statement when a standard license is not sufficient.
-
----
-
-## methods_summary
-## processing_summary
-
-**Label:** Methods & processing  
-**Type:** string  
-**Required:** no
-
-### Definition
-High-level methods and any key processing steps performed for this release.
-
----
-
-## upstream_release_ids
-
-**Label:** Upstream lineage  
-**Type:** string  
-**Format:** `|`-separated list of `release_id`  
-**Required:** no
-
-### Definition
-Release IDs that this release derives from or depends on (lineage).
-
----
-
-## file_manifest_path
-
-**Label:** File checksum manifest path  
-**Type:** string  
-**Required:** yes  
-**Immutable:** yes (per release)
-
-### Definition
-Relative path (within release folder) to the per-file checksum manifest (e.g., `checksums.sha256`).
-
----
-
-## manifest_sha256
-
-**Label:** Dataset fingerprint (manifest hash)  
-**Type:** string  
-**Format:** sha256 hex  
-**Required:** yes  
-**Immutable:** yes (per release)
-
-### Definition
-SHA-256 of the checksum manifest file. Represents the integrity of the entire release contents.
-
----
-
-## file_count
-
-**Label:** File count  
-**Type:** int  
-**Required:** yes  
-**Immutable:** yes (per release)
-
-### Definition
-Number of files/entities included in this release.
-
----
-
-## total_bytes
-
-**Label:** Total bytes  
-**Type:** int  
-**Required:** yes  
-**Immutable:** yes (per release)
-
-### Definition
-Sum of `size_bytes` across entities for this release.
-
----
-
-## notes
-
-**Label:** Notes  
-**Type:** string  
-**Required:** no
-
-### Definition
-Free-text notes, known limitations, quirks, etc.

@@ -5,9 +5,9 @@
       "@language": "en"
     }
   ],
-  "url": "eml_responsibility_roles.csv",
-  "dc:title": "EML responsibility roles",
-  "dc:description": "Controlled vocabulary for EML Party RoleType values used in EML associatedParty/role and related elements.",
+  "url": "credit_roles.csv",
+  "dc:title": "CRediT roles",
+  "dc:description": "Controlled vocabulary for the 14 CRediT (Contributor Role Taxonomy) contributor roles.",
   "dialect": {
     "delimiter": ",",
     "quoteChar": "\"",
@@ -23,7 +23,7 @@
         "titles": "concept_iid",
         "datatype": {
           "base": "string",
-          "format": "^aksdb:eml_responsibility_role/[A-Za-z0-9_\\-]+$"
+          "format": "^aksdb:credit_role/[A-Za-z0-9_\\-]+$"
         },
         "required": true,
         "null": [

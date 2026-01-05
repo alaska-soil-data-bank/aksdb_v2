@@ -1,0 +1,718 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "",
+    "text": "Home",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#what-is-aksdb-v2",
+    "href": "index.html#what-is-aksdb-v2",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "What is AKSDB v2?",
+    "text": "What is AKSDB v2?\nAKSDB v2 is a data + metadata + governance system for assembling many heterogeneous soil datasets into a consistent, auditable set of harmonized outputs—while preserving provenance back to source datasets.\nIt is designed around four ideas:\n\nStable IDs for long-lived references (machines + citations)\nHuman slugs for readable URLs and docs navigation\nReleases to publish coherent snapshots of schema + vocab + mappings + products\nChecksums/manifests to guarantee integrity and reproducibility\n\nIf you remember one thing: AKSDB is built so that you can always answer “what is this, where did it come from, and what changed?”",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-this-documentation",
+    "href": "index.html#how-to-use-this-documentation",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "How to use this documentation",
+    "text": "How to use this documentation\nUse this book in one of three ways:\n\n1) Read it end-to-end (recommended for contributors)\nStart with Concepts → Registry → Vocab/Glossary → Mapping → Products → Governance.\n\n\n2) Jump in based on your task\n\nAdding a new source dataset? Go to Datasets and Mapping\nPublishing a harmonized output? Go to Products, Standards, and Releases\nChanging schema/vocab/rules? Go to Governance\nConfused by a term? Go to Glossary\nNeed allowable values? Go to Vocab\n\n\n\n3) Use it as a reference\nThink of Registry / Vocab / Glossary as the “API docs” for AKSDB.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "Quick links",
+    "text": "Quick links\n\nStart here: Getting Started\nMental model: Concepts\nMetadata spine: Registry\nAllowed values: Vocab\nDefinitions: Glossary\nSource datasets: Datasets\nHarmonized outputs: Products\nCrosswalk rules: Mapping\nStandards alignment: Standards\nChange process: Governance\nCopy/paste patterns: Examples",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#the-aksdb-object-model-birds-eye-view",
+    "href": "index.html#the-aksdb-object-model-birds-eye-view",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "The AKSDB object model (bird’s-eye view)",
+    "text": "The AKSDB object model (bird’s-eye view)\nAKSDB documentation is organized around a few “objects” you’ll see everywhere:\n\n\n\n\n\n\n\n\n\nObject\nKey\nWhere documented\nPurpose\n\n\n\n\nDataset\nds_iid\nDatasets\nA source dataset (pre-harmonization)\n\n\nProduct\nproduct_slug (+ canonical ID)\nProducts\nA harmonized publishable output\n\n\nEntity\ncanonical entity ID\nRegistry\nA described thing (table/file/layer/artifact)\n\n\nParty\ncanonical party ID\nRegistry\nA person or organization\n\n\nRole\ncontrolled vocab\nVocab + Standards\nAttribution and responsibility\n\n\nTerm\nterm_id\nGlossary\nCanonical definition used across docs",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#public-vs-private-two-repo-worldview",
+    "href": "index.html#public-vs-private-two-repo-worldview",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "Public vs private (two-repo worldview)",
+    "text": "Public vs private (two-repo worldview)\nAKSDB v2 usually operates as two surfaces:\n\nPrivate workspace: raw inputs, restricted datasets, internal notes, intermediate artifacts\nPublic repo: harmonized products, documentation, open metadata, citations\n\nThis book aims to describe the system in a way that supports both—without leaking private data.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#guarantees-what-aksdb-tries-to-make-true",
+    "href": "index.html#guarantees-what-aksdb-tries-to-make-true",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "Guarantees (what AKSDB tries to make true)",
+    "text": "Guarantees (what AKSDB tries to make true)\nAKSDB v2 aims for:\n\nReferential stability: IDs don’t change once published\nReproducibility: releases can be rebuilt (same inputs + same rules)\nTraceability: products can be traced to datasets and mapping rules\nControlled language: vocabularies and glossary prevent “semantic drift”\nGoverned change: schema and rules evolve with explicit deprecation/versioning",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#where-to-go-next",
+    "href": "index.html#where-to-go-next",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "Where to go next",
+    "text": "Where to go next\nIf you are new to the project:\n\nRead Getting Started\nRead Concepts (IDs → slugs → releases → checksums)\nSkim Registry to understand the metadata spine\nUse Examples to do real work quickly",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#citation-and-licensing",
+    "href": "index.html#citation-and-licensing",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "Citation and licensing",
+    "text": "Citation and licensing\nAKSDB v2 is intended to be citable at multiple levels:\n\nthe overall project/release\neach harmonized product\neach source dataset (original citation preserved)\n\n(See Standards for how we align with DataCite / EML, and how roles map to CRediT.)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#project-status",
+    "href": "index.html#project-status",
+    "title": "Alaska Soil Data Bank (AKSDB) v2 Documentation",
+    "section": "Project status",
+    "text": "Project status\nThis documentation is evolving alongside: - the registry tables and controlled vocabularies, - mapping rules for key sources, - and the first “stable” harmonized product releases.\nIf something feels incomplete, check Governance for how to propose changes and add missing pages.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "concepts/concepts--index.html",
+    "href": "concepts/concepts--index.html",
+    "title": "1  Concepts",
+    "section": "",
+    "text": "1.1 Why these concepts exist\nAKSDB v2 is designed for: - reproducibility (same inputs → same outputs), - long-lived references (stable identifiers), - safe evolution (versioning + deprecation), - traceability (checksums + provenance).\nEverything else in the docs assumes this mental model.",
+    "crumbs": [
+      "Concepts::concepts",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "concepts/concepts--index.html#the-core-chain",
+    "href": "concepts/concepts--index.html#the-core-chain",
+    "title": "1  Concepts",
+    "section": "1.2 The core chain",
+    "text": "1.2 The core chain\n\nIDs IDs are canonical, stable identifiers for machines and long-term references. They should be:\n\n\nunique,\nimmutable once published,\nnever “meaningful” in a way that invites reinterpretation.\n\n\nSlugs Slugs are human-friendly names used for URLs and docs navigation. They can change (with redirects / alias rules), but must never break ID-based references.\nReleases A release is a named snapshot of:\n\n\nschema,\nvocab,\nmappings,\nproducts (harmonized outputs), with explicit compatibility expectations.\n\n\nChecksums Checksums anchor trust:\n\n\ndetect unintended change,\nsupport manifests,\nenable provenance (“this file came from these inputs under this mapping version”).",
+    "crumbs": [
+      "Concepts::concepts",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "concepts/concepts--index.html#in-this-section",
+    "href": "concepts/concepts--index.html#in-this-section",
+    "title": "1  Concepts",
+    "section": "1.3 In this section",
+    "text": "1.3 In this section\n\nIDs & slugs: what is stable, what can change, and how aliases work\n\nReleases: what constitutes a release, and how we version it\n\nChecksums & provenance: manifests, file integrity, and lineage\n\nValidation checks: what we assert about tables and outputs",
+    "crumbs": [
+      "Concepts::concepts",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "concepts/concepts--index.html#suggested-next-pages",
+    "href": "concepts/concepts--index.html#suggested-next-pages",
+    "title": "1  Concepts",
+    "section": "1.4 Suggested next pages",
+    "text": "1.4 Suggested next pages\n\nIDs & slugs\nReleases & versioning\nChecksums & provenance\nValidation checks",
+    "crumbs": [
+      "Concepts::concepts",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "registry/registry--index.html",
+    "href": "registry/registry--index.html",
+    "title": "2  Registry",
+    "section": "",
+    "text": "2.1 What the registry is\nThe registry is the metadata spine of AKSDB v2. It defines the “who/what/where/why” across datasets and products:",
+    "crumbs": [
+      "Registry::registry",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Registry</span>"
+    ]
+  },
+  {
+    "objectID": "registry/registry--index.html#what-the-registry-is",
+    "href": "registry/registry--index.html#what-the-registry-is",
+    "title": "2  Registry",
+    "section": "",
+    "text": "packages: publishable units / bundles (datasets, products, releases)\nentities: things described by metadata (tables, files, layers, artifacts)\nparties: people and organizations\nroles: how parties relate to entities (author, curator, funder, etc.)",
+    "crumbs": [
+      "Registry::registry",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Registry</span>"
+    ]
+  },
+  {
+    "objectID": "registry/registry--index.html#how-to-use-this-section",
+    "href": "registry/registry--index.html#how-to-use-this-section",
+    "title": "2  Registry",
+    "section": "2.2 How to use this section",
+    "text": "2.2 How to use this section\n\nRead the table docs (structure + field meanings)\nUse the data dictionary to enforce consistent meanings\nRefer back here whenever you add a dataset/product page",
+    "crumbs": [
+      "Registry::registry",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Registry</span>"
+    ]
+  },
+  {
+    "objectID": "registry/registry--index.html#registry-docs",
+    "href": "registry/registry--index.html#registry-docs",
+    "title": "2  Registry",
+    "section": "2.3 Registry docs",
+    "text": "2.3 Registry docs\n\npackages\nentities\nparties\ndata dictionary",
+    "crumbs": [
+      "Registry::registry",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Registry</span>"
+    ]
+  },
+  {
+    "objectID": "registry/registry--index.html#design-notes",
+    "href": "registry/registry--index.html#design-notes",
+    "title": "2  Registry",
+    "section": "2.4 Design notes",
+    "text": "2.4 Design notes\n\nRegistry rows should be referencable by canonical IDs\nHuman-readable display names belong in slugs/labels, not in IDs\nControlled vocabularies should be referenced, not duplicated",
+    "crumbs": [
+      "Registry::registry",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Registry</span>"
+    ]
+  },
+  {
+    "objectID": "registry/registry--packages.html",
+    "href": "registry/registry--packages.html",
+    "title": "3  packages::Packages",
+    "section": "",
+    "text": "3.1 Columns",
+    "crumbs": [
+      "Registry::registry",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>packages::Packages</span>"
+    ]
+  },
+  {
+    "objectID": "registry/registry--packages.html#columns",
+    "href": "registry/registry--packages.html#columns",
+    "title": "3  packages::Packages",
+    "section": "",
+    "text": "Column label\nColumn name\nType\nFormat\nDescription\n\n\n\n\nDataset concept ID\ndataset_id\nstring\nUUIDv4\nStable identifier for the dataset concept across time (all releases/snapshots share the same dataset_id). Enables stable joins and lineage even if names/slugs change (though ds_iid should be immutable too). For a given ds_iid, dataset_id must be consistent across all rows. Example: 550e8400-e29b-41d4-a716-446655440000\n\n\nDataset handle (slug)\nds_iid\nstring\n^[a-z0-9]+(-[a-z0-9]+)*$\nImmutable, human-readable dataset handle used in scripting and folder naming.\n\n\n\n\nMust be globally unique across the registry; never reused.Validation rules: - Must match regex.\nMust be unique across all packages rows (recommended).\nMust not change for a given dataset_id.Examples: - Valid: nrcs-nasis-pedons-ak\nInvalid: NRCS_NASIS_AK — uppercase/underscore | | Release (snapshot) ID | release_id | string | UUID (recommend UUIDv7) | Unique identifier for a frozen snapshot of a dataset at a point in time. | Required: yesDefinition: Unique identifier for a frozen snapshot of a dataset at a point in time.Purpose: The join key for all release-scoped metadata: entities/files, roles, QA/QC, derived products.Validation rules: - Must be unique within packages.\nMust be a valid UUID. | | Release (snapshot) slug | release_slug | string | parseable slug (project convention) | Human-readable identifier for the snapshot, typically derived from ds_iid + dates + internal counter. | Required: yesDefinition: Human-readable identifier for the snapshot, typically derived from ds_iid + dates + internal counter.Purpose: Readable folder names and provenance in logs/artifacts.Validation rules: - Must start with ds_iid (recommended).\nMust be unique within the registry.Examples: - nrcs-nasis-pedons-ak--ing20251231--r003 | | Title | title | string | | Human-readable dataset/release title appropriate for citation. | Required: yesDefinition: Human-readable dataset/release title appropriate for citation. | | Abstract | abstract | string | | Short description of what the dataset/release contains and why it exists. | Required: yesDefinition: Short description of what the dataset/release contains and why it exists. | | Purpose | purpose | string | | Optional statement of intended use / motivation (helpful for EML-style metadata). | Required: noDefinition: Optional statement of intended use / motivation (helpful for EML-style metadata). | | Source organization | source_org | string | | Organization responsible for producing or stewarding the upstream dataset. | Required: recommended yesDefinition: Organization responsible for producing or stewarding the upstream dataset. | | Source citation | source_citation | string | | Preferred citation text for the upstream dataset (include DOI if available). | Required: recommended yesDefinition: Preferred citation text for the upstream dataset (include DOI if available). | | Landing page URL | landing_page_url | string | | Public landing page for the dataset or release (repository record, project page). | Required: noDefinition: Public landing page for the dataset or release (repository record, project page). | | DOI | doi | string | | DOI for the dataset release/version, if minted. | Required: noDefinition: DOI for the dataset release/version, if minted. | | EML package identifier | eml_packageId | string | | Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC). | Required: noDefinition: Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC). | | | repo_scope | | | | | | | repo_identifier | | | | | | Repository identifiers | repo_revision | string | | Optional split fields for package identification/versioning within a repository. | Required: noDefinition: Optional split fields for package identification/versioning within a repository. | | | coverage_start | | | | | | Coverage window | coverage_end | date or string | YYYY-MM-DD (preferred) or YYYY/YYYY-MM if partial | Temporal extent of the observations represented in this release (not ingest date). | Required: noDefinition: Temporal extent of the observations represented in this release (not ingest date). | | Published/updated date (upstream) | published_date | date | | Provider-reported publication or last-updated date for the upstream dataset snapshot. | Required: noDefinition: Provider-reported publication or last-updated date for the upstream dataset snapshot. | | Ingest date | ingest_date | date | | Date this snapshot was frozen/ingested into your harmonization pipeline. | Required: yesDefinition: Date this snapshot was frozen/ingested into your harmonization pipeline. | | | geo_description | | | | | | | west | | | | | | | east | | | | | | | south | | | | | | Spatial coverage (bbox + description) | north | string + float | | Overall spatial footprint/description for the release; bbox coordinates in decimal degrees. | Required: noDefinition: Overall spatial footprint/description for the release; bbox coordinates in decimal degrees. | | Spatial reference | spatial_reference | string | | EPSG code, WKT, or other SRS description if relevant. | Required: noDefinition: EPSG code, WKT, or other SRS description if relevant. | | License | license | string | | License identifier (prefer SPDX where possible). | Required: recommended yesDefinition: License identifier (prefer SPDX where possible). | | Intellectual rights / usage constraints | intellectual_rights | string | | Free-text rights statement when a standard license is not sufficient. | Required: noDefinition: Free-text rights statement when a standard license is not sufficient. | | | methods_summary | | | | | | Methods & processing | processing_summary | string | | High-level methods and any key processing steps performed for this release. | Required: noDefinition: High-level methods and any key processing steps performed for this release. | | Upstream lineage | upstream_release_ids | string | &#124;-separated list of release_id | Release IDs that this release derives from or depends on (lineage). | Required: noDefinition: Release IDs that this release derives from or depends on (lineage). | | File checksum manifest path | file_manifest_path | string | | Relative path (within release folder) to the per-file checksum manifest (e.g., checksums.sha256). | Required: yesDefinition: Relative path (within release folder) to the per-file checksum manifest (e.g., checksums.sha256). | | Dataset fingerprint (manifest hash) | manifest_sha256 | string | sha256 hex | SHA-256 of the checksum manifest file. | Required: yesDefinition: SHA-256 of the checksum manifest file. Represents the integrity of the entire release contents. | | File count | file_count | int | | Number of files/entities included in this release. | Required: yesDefinition: Number of files/entities included in this release. | | Total bytes | total_bytes | int | | Sum of size_bytes across entities for this release. | Required: yesDefinition: Sum of size_bytes across entities for this release. | | Notes | notes | string | | Free-text notes, known limitations, quirks, etc. | Required: noDefinition: Free-text notes, known limitations, quirks, etc. |",
+    "crumbs": [
+      "Registry::registry",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>packages::Packages</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--index.html",
+    "href": "vocab/vocab--index.html",
+    "title": "4  Vocab",
+    "section": "",
+    "text": "4.1 What belongs here\nAnything that should be standardized and validated belongs in vocab/, including: - roles (aligned with CRediT where applicable), - status fields (draft/published/deprecated), - entity types, - license identifiers, - field-level enums.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Vocab</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--index.html#how-vocab-is-used",
+    "href": "vocab/vocab--index.html#how-vocab-is-used",
+    "title": "4  Vocab",
+    "section": "4.2 How vocab is used",
+    "text": "4.2 How vocab is used\n\nRegistry tables reference vocab values\nValidation checks assert only allowed values appear\nReleases snapshot vocab at a point in time",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Vocab</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--index.html#start-here",
+    "href": "vocab/vocab--index.html#start-here",
+    "title": "4  Vocab",
+    "section": "4.3 Start here",
+    "text": "4.3 Start here\n\nRoles vocabulary (registry + standards)\nStatus vocabulary (draft → published → deprecated)\nShared enums used across tables",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Vocab</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html",
+    "title": "5  Controlled vocabularies standard",
+    "section": "",
+    "text": "5.1 What a controlled vocabulary CSV represents",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#what-a-controlled-vocabulary-csv-represents",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#what-a-controlled-vocabulary-csv-represents",
+    "title": "5  Controlled vocabularies standard",
+    "section": "",
+    "text": "One CSV = one vocabulary (one list of concepts for one topic such as methods, roles, units, properties).\nOne row = one concept.\nThe machine value used in data products is stored in term_code.\nThe stable project identifier used for joins and governance is stored in concept_iid.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#identifiers-and-namespaces",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#identifiers-and-namespaces",
+    "title": "5  Controlled vocabularies standard",
+    "section": "5.2 Identifiers and namespaces",
+    "text": "5.2 Identifiers and namespaces\n\nconcept_iid is a stable identifier minted by this project (typically in the aksdb: namespace).\nEven if a term originates from an external standard (EML, ISO, etc.), the project still mints its own concept_iid so the record can be versioned, governed, and referenced consistently.\nExternal provenance and mappings are captured in source, exact_match_ids, and close_match_ids.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#standard-column-set",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#standard-column-set",
+    "title": "5  Controlled vocabularies standard",
+    "section": "5.3 Standard column set",
+    "text": "5.3 Standard column set\nAll controlled vocabulary CSVs in this project use the following columns:\n\nconcept_iid\nterm_code\npref_label\nalt_labels\ndefinition\nstatus\ncreated\nmodified\nscope_note\nrelated_ids\nexact_match_ids\nclose_match_ids\nreplaced_by\nsource\nnote\n\n\nGovernance fields\n\nstatus indicates lifecycle state. Allowed values:\n\naccepted (current valid term)\nproposed (candidate term under review)\ndeprecated (do not use for new data; may have a replacement)\ndraft (work-in-progress, not ready for use)\n\ncreated and modified track history and must be ISO 8601: YYYY-MM-DD.\n\n\n\nLabels and definitions\n\npref_label is the human-facing label used in UIs and reports.\nalt_labels captures synonyms, abbreviations, and common variants to improve search and mapping.\ndefinition is a short, stable description of the concept’s meaning.\nscope_note clarifies boundaries, intended usage, and edge cases.\n\n\n\nRelationships and mappings\n\nrelated_ids can point to other concept_iid values when a useful non-hierarchical relationship exists.\nexact_match_ids is for external identifiers that are equivalent in meaning (for example, an authoritative schema or standard identifier).\nclose_match_ids is for external identifiers that are similar but not strictly equivalent (crosswalks).\nreplaced_by supports deprecation by pointing to the preferred successor concept when status=deprecated.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#multi-value-encoding-convention",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#multi-value-encoding-convention",
+    "title": "5  Controlled vocabularies standard",
+    "section": "5.4 Multi-value encoding convention",
+    "text": "5.4 Multi-value encoding convention\nWhen a single cell contains multiple values, the project enforces this encoding:\n\nEnclose the set in curly braces\nSeparate values with pipes\n\nExamples:\n\nalt_labels = {EC|electrical conductivity|conductivity}\nrelated_ids = {aksdb:foo/a|aksdb:foo/b}\n\nEmpty cells represent “no value”.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#csv-quoting-and-commas",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#csv-quoting-and-commas",
+    "title": "5  Controlled vocabularies standard",
+    "section": "5.5 CSV quoting and commas",
+    "text": "5.5 CSV quoting and commas\nCSV uses commas to separate fields. If a cell contains a comma, a newline, or a double quote, the value must be quoted using double quotes. Where possible, keep definitions and notes free of commas to minimize quoting and reduce noisy diffs.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#regex-and-validation",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#regex-and-validation",
+    "title": "5  Controlled vocabularies standard",
+    "section": "5.6 Regex and validation",
+    "text": "5.6 Regex and validation\nRegular expressions (regex) are used in validation to ensure consistent value shapes. Common uses:\n\nEnforce identifier formats (for example, concept_iid prefix rules)\nEnforce machine code formats (term_code)\nValidate multi-value fields (either empty or {...} with | separators)\nValidate date formats (created, modified)\n\nRecommended regex checks:\n\nMulti-value cell is either empty or wrapped in braces:\n\n^(\\{[^{}]*\\}|)$\n\nBasic term code (letters only, supports CamelCase):\n\n^[A-Za-z][A-Za-z]*$\n\nISO date:\n\n^\\d{4}-\\d{2}-\\d{2}$",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#csvw-metadata-sidecars",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#csvw-metadata-sidecars",
+    "title": "5  Controlled vocabularies standard",
+    "section": "5.7 CSVW metadata sidecars",
+    "text": "5.7 CSVW metadata sidecars\nEach controlled vocabulary CSV should include a matching CSVW metadata file:\n\n&lt;vocab&gt;.csv-metadata.json\n\nThe CSVW file provides machine-readable descriptions of: - column datatypes - required fields - controlled enums (such as status) - separators for multi-value fields\nThis supports automated validation and consistent parsing across tools.\n\nWhat CSVW is for\nCSVW (CSV on the Web) is a W3C standard for describing CSV files with machine-readable metadata. In this project, the CSVW sidecar is used as the authoritative schema for each vocabulary so that scripts and pipelines do not have to guess how to interpret the CSV.\n\n\nHow to interpret the CSVW file\nKey fields you will see:\n\nurl: which CSV file this metadata describes.\ndialect: how the CSV is formatted (delimiter, quote character, encoding, and whether there is a header row).\ntableSchema.primaryKey: the column or columns that uniquely identify rows.\ntableSchema.columns: per-column rules:\n\nname: the exact column header in the CSV.\nrequired: whether empty values are allowed.\nnull: which values are treated as “missing” (this project uses \"\").\ndatatype: the expected datatype (for example date, string, anyURI) and optionally a format pattern (regex-like).\nseparator: how to split multi-valued cells (this project uses | in columns whose CSV values are encoded as {a|b|c}).\n\n\n\n\nHow to use CSVW in this project\nUse the CSVW file in any workflow that reads vocabularies:\n\nValidation (recommended in CI):\n\ncheck required fields are present\ncheck status is one of the allowed enum values\ncheck created and modified are valid ISO dates\ncheck multi-value fields conform to {...} and split cleanly on |\n\nParsing (ETL and ingestion):\n\nuse the separator metadata to parse multi-value fields into arrays/lists consistently\nuse datatype to parse and type-cast fields consistently (for example dates)\n\nDocumentation generation (optional):\n\ncolumn names and constraints can be derived from CSVW to keep validation rules synchronized with the CSV\n\n\n\n\nCanonical multi-value parsing rule\nFor any column that is both: - encoded as {a|b|c} in the CSV, and - has \"separator\": \"|\" in CSVW,\nthe canonical parse is:\n\nif blank → empty list\n\nelse strip leading { and trailing }\n\nsplit on |\n\ntrim whitespace on each value",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--controlled-vocabularies-standard.html#documentation-format-for-each-vocabulary",
+    "href": "vocab/vocab--controlled-vocabularies-standard.html#documentation-format-for-each-vocabulary",
+    "title": "5  Controlled vocabularies standard",
+    "section": "5.8 Documentation format for each vocabulary",
+    "text": "5.8 Documentation format for each vocabulary\nEach vocabulary must have a companion Markdown documentation page that includes:\n\nA brief narrative introduction (rationale + what the vocabulary is for)\nA “Controlled vocabulary file” section with:\n\ncontrolled vocabulary name / table name (filename)\nlabel (human-readable label)\n\nA “Columns” section with a table:\n\nColumn label (human-readable)\nColumn name (exact CSV header)\nDescription (detailed)\n\nA “References” section that points to the authority defining the terms and any mapping standards",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controlled vocabularies standard</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--eml-responsibility-roles.html",
+    "href": "vocab/vocab--eml-responsibility-roles.html",
+    "title": "6  eml_responsibility_roles",
+    "section": "",
+    "text": "6.1 Controlled vocabulary file",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>eml_responsibility_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--eml-responsibility-roles.html#controlled-vocabulary-file",
+    "href": "vocab/vocab--eml-responsibility-roles.html#controlled-vocabulary-file",
+    "title": "6  eml_responsibility_roles",
+    "section": "",
+    "text": "Controlled vocabulary name / table name: /metadata/vocab/eml_responsibility_roles.csv\n\nLabel: EML responsibility roles",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>eml_responsibility_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--eml-responsibility-roles.html#columns",
+    "href": "vocab/vocab--eml-responsibility-roles.html#columns",
+    "title": "6  eml_responsibility_roles",
+    "section": "6.2 Columns",
+    "text": "6.2 Columns\n\n\n\n\n\n\n\n\nColumn label\nColumn name\nDescription\n\n\n\n\nConcept identifier\nconcept_iid\nStable, project-minted identifier for the concept. Used as the primary key for joins and internal governance (do not recycle). Pattern in this vocab: aksdb:eml_responsibility_role/&lt;RoleTypeValue&gt;.\n\n\nEML role code\nterm_code\nThe exact machine-readable EML RoleType literal value to write into EML (case sensitive). Examples include principalInvestigator and pointOfContact.\n\n\nPreferred label\npref_label\nHuman-readable display label for the role.\n\n\nAlternative labels\nalt_labels\nOptional synonyms and variants for search and display. Multi-values are encoded as {value1|value2|...}.\n\n\nDefinition\ndefinition\nShort definition of the role concept (project-readable).\n\n\nStatus\nstatus\nGovernance status for the concept. Allowed values: accepted, proposed, deprecated, draft.\n\n\nCreated\ncreated\nDate the row/concept was introduced to the vocabulary in ISO format YYYY-MM-DD.\n\n\nModified\nmodified\nDate the row/concept was last changed in ISO format YYYY-MM-DD.\n\n\nScope note\nscope_note\nOptional usage guidance and boundaries for applying the role.\n\n\nRelated identifiers\nrelated_ids\nOptional related concept identifiers (non-hierarchical). Multi-values are encoded as {value1|value2|...}.\n\n\nExact match identifiers\nexact_match_ids\nExternal identifier(s) that are considered exact matches. In this vocab this is the authoritative EML XSD URL used as the source definition for RoleType.\n\n\nClose match identifiers\nclose_match_ids\nExternal identifier(s) that are close (not exact) matches. Here this is used for ISO 19115 CI_RoleCode crosswalks when applicable. Multi-values are encoded as {value1|value2|...}.\n\n\nReplaced by\nreplaced_by\nIf status=deprecated, the concept_iid of the preferred replacement concept.\n\n\nSource\nsource\nHuman-readable documentation URL for the authority defining the vocabulary values (here: EML Party/RoleType documentation).\n\n\nNote\nnote\nOptional editorial notes and provenance details. Multi-values are encoded as {value1|value2|...}.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>eml_responsibility_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--eml-responsibility-roles.html#references",
+    "href": "vocab/vocab--eml-responsibility-roles.html#references",
+    "title": "6  eml_responsibility_roles",
+    "section": "6.3 References",
+    "text": "6.3 References\n\nEML Party / RoleType documentation: see source column in eml_responsibility_roles_iso.csv.\nEML 2.1.1 Party schema (XSD): see exact_match_ids column in eml_responsibility_roles_iso.csv.\nISO 19115 CI_RoleCode codelist (used for close matches): see the ISO codelist URL referenced in the note column for each mapped term.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>eml_responsibility_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--datacite-contributor-roles.html",
+    "href": "vocab/vocab--datacite-contributor-roles.html",
+    "title": "7  datacite_contributor_roles",
+    "section": "",
+    "text": "7.1 Controlled vocabulary file",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>datacite_contributor_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--datacite-contributor-roles.html#controlled-vocabulary-file",
+    "href": "vocab/vocab--datacite-contributor-roles.html#controlled-vocabulary-file",
+    "title": "7  datacite_contributor_roles",
+    "section": "",
+    "text": "Controlled vocabulary name / table name: /metadata/vocab/datacite_contributor_roles.csv\n\nLabel: DataCite contributor roles",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>datacite_contributor_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--datacite-contributor-roles.html#columns",
+    "href": "vocab/vocab--datacite-contributor-roles.html#columns",
+    "title": "7  datacite_contributor_roles",
+    "section": "7.2 Columns",
+    "text": "7.2 Columns\n\n\n\n\n\n\n\n\nColumn label\nColumn name\nDescription\n\n\n\n\nConcept identifier\nconcept_iid\nStable, project-minted identifier for the concept. Recommended pattern for this vocab: aksdb:datacite_contributor_role/&lt;ContributorTypeValue&gt;.\n\n\nPreferred label\nlabel\nHuman-readable label for the role (typically the same as the DataCite controlled value, optionally spaced for readability).\n\n\nTerm code\nterm_code\nThe exact machine-readable DataCite contributorType literal value that should be written into DataCite metadata.\n\n\nDefinition\ndefinition\nShort definition of the role (sourced from DataCite controlled list definitions where available).\n\n\nStatus\nstatus\nGovernance status for the concept. Allowed values: accepted, proposed, deprecated, draft.\n\n\nCreated\ncreated\nDate the row/concept was introduced to the vocabulary in ISO format YYYY-MM-DD.\n\n\nModified\nmodified\nDate the row/concept was last changed in ISO format YYYY-MM-DD.\n\n\nScope note\nscope_note\nOptional usage guidance and boundaries for applying the role.\n\n\nRelated identifiers\nrelated_ids\nOptional related concept identifiers (e.g., broader/narrower/hierarchical). Multi-values are encoded as {value1|value2|...}.\n\n\nExact match identifiers\nexact_match_ids\nExternal identifier(s) for the authoritative DataCite XSD enumeration and/or per-term documentation anchor used as the source definition for contributorType. Multi-values are encoded as {value1|value2|...}.\n\n\nClose match identifiers\nclose_match_ids\nExternal identifier(s) for close matches (e.g., CRediT role URLs) where applicable. Multi-values are encoded as {value1|value2|...}.\n\n\nReplaced by\nreplaced_by\nIf status=deprecated, the concept_iid of the preferred replacement concept.\n\n\nSource\nsource\nHuman-readable documentation URL for the authoritative definition of the vocabulary values (here: DataCite contributorType documentation).\n\n\nNote\nnote\nOptional editorial notes and provenance details. Multi-values are encoded as {value1|value2|...}.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>datacite_contributor_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--datacite-contributor-roles.html#references",
+    "href": "vocab/vocab--datacite-contributor-roles.html#references",
+    "title": "7  datacite_contributor_roles",
+    "section": "7.3 References",
+    "text": "7.3 References\n\nDataCite contributorType controlled list definitions: https://datacite-metadata-schema.readthedocs.io/en/latest/appendices/appendix-1/contributorType/\nDataCite contributorType schema enumeration (XSD include): https://schema.datacite.org/meta/kernel-4.6/include/datacite-contributorType-v4.xsd\nCRediT role descriptors (used for close matches): https://credit.niso.org/contributor-roles-defined/",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>datacite_contributor_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--credit-roles.html",
+    "href": "vocab/vocab--credit-roles.html",
+    "title": "8  credit_roles",
+    "section": "",
+    "text": "8.1 Controlled vocabulary file",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>credit_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--credit-roles.html#controlled-vocabulary-file",
+    "href": "vocab/vocab--credit-roles.html#controlled-vocabulary-file",
+    "title": "8  credit_roles",
+    "section": "",
+    "text": "Controlled vocabulary name / table name: /metadata/vocab/credit_roles.csv\n\nLabel: CRediT roles",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>credit_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--credit-roles.html#columns",
+    "href": "vocab/vocab--credit-roles.html#columns",
+    "title": "8  credit_roles",
+    "section": "8.2 Columns",
+    "text": "8.2 Columns\n\n\n\n\n\n\n\n\nColumn label\nColumn name\nDescription\n\n\n\n\nConcept identifier\nconcept_iid\nStable, project-minted identifier for the concept. Recommended pattern for this vocab: aksdb:credit_role/&lt;RoleCode&gt;.\n\n\nPreferred label\npref_label\nHuman-readable label for the role (as shown in CRediT).\n\n\nTerm code\nterm_code\nMachine-friendly role code (letters only) used for clean programmatic identifiers.\n\n\nAlternate labels\nalt_labels\nOptional synonyms / label variants. Multi-values are encoded as {value1|value2|...}.\n\n\nDefinition\ndefinition\nShort definition of the role (from the authoritative CRediT role descriptors).\n\n\nStatus\nstatus\nGovernance status for the concept. Allowed values: accepted, proposed, deprecated, draft.\n\n\nCreated\ncreated\nDate the row/concept was introduced to the vocabulary in ISO format YYYY-MM-DD.\n\n\nModified\nmodified\nDate the row/concept was last changed in ISO format YYYY-MM-DD.\n\n\nScope note\nscope_note\nOptional usage guidance and boundaries for applying the role.\n\n\nRelated identifiers\nrelated_ids\nOptional related concept identifiers (e.g., broader/narrower/hierarchical). Multi-values are encoded as {value1|value2|...}.\n\n\nExact match identifiers\nexact_match_ids\nExternal identifier for the authoritative role descriptor (CRediT per-role URL).\n\n\nClose match identifiers\nclose_match_ids\nOptional external identifiers for close matches (e.g., other role taxonomies). Multi-values are encoded as {value1|value2|...}.\n\n\nReplaced by\nreplaced_by\nIf status=deprecated, the concept_iid of the preferred replacement concept.\n\n\nSource\nsource\nHuman-readable documentation URL for the authority defining the vocabulary values (here: CRediT role descriptors).\n\n\nNote\nnote\nOptional editorial notes and provenance details. Multi-values are encoded as {value1|value2|...}.",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>credit_roles</span>"
+    ]
+  },
+  {
+    "objectID": "vocab/vocab--credit-roles.html#references",
+    "href": "vocab/vocab--credit-roles.html#references",
+    "title": "8  credit_roles",
+    "section": "8.3 References",
+    "text": "8.3 References\n\nCRediT role descriptors (authoritative list + definitions): https://credit.niso.org/contributor-roles-defined/\nCRediT home (overview + role list): https://credit.niso.org/\nGuidance on using/implementing CRediT: https://credit.niso.org/implementing-credit/\nCRediT as an ANSI/NISO standard (background): https://casrai.org/credit/",
+    "crumbs": [
+      "Vocabulary::vocab",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>credit_roles</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/glossary--index.html",
+    "href": "glossary/glossary--index.html",
+    "title": "9  Glossary",
+    "section": "",
+    "text": "9.1 Purpose\nThe glossary prevents “same word, different meaning” drift.\nA glossary entry should: - define the term precisely, - list synonyms/aliases, - specify scope (where it applies), - link to related registry fields and standards mappings.",
+    "crumbs": [
+      "Glossary::glossary",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/glossary--index.html#in-this-section",
+    "href": "glossary/glossary--index.html#in-this-section",
+    "title": "9  Glossary",
+    "section": "9.2 In this section",
+    "text": "9.2 In this section\n\nAll terms\nOrganic carbon",
+    "crumbs": [
+      "Glossary::glossary",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/glossary--index.html#authoring-rule-of-thumb",
+    "href": "glossary/glossary--index.html#authoring-rule-of-thumb",
+    "title": "9  Glossary",
+    "section": "9.3 Authoring rule of thumb",
+    "text": "9.3 Authoring rule of thumb\nIf a term appears in: - registry field descriptions, - mapping rules, - product documentation, and could be interpreted multiple ways—add a glossary entry.",
+    "crumbs": [
+      "Glossary::glossary",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Glossary</span>"
+    ]
+  },
+  {
+    "objectID": "glossary/glossary--terms.html",
+    "href": "glossary/glossary--terms.html",
+    "title": "10  Terms",
+    "section": "",
+    "text": "slug\nDEFINITION:\nCOMMENT:\nREFERENCE:\n\n\nUUIDv4\nDEFINITION:\nCOMMENT:\nREFERENCE:",
+    "crumbs": [
+      "Glossary::glossary",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Terms</span>"
+    ]
+  },
+  {
+    "objectID": "datasets/datasets--index.html",
+    "href": "datasets/datasets--index.html",
+    "title": "11  Datasets",
+    "section": "",
+    "text": "11.1 What a dataset page is\nA dataset page documents a source dataset before (or alongside) harmonization: - what it is and where it came from, - spatial/temporal coverage, - collection and processing notes, - access constraints (public vs private), - how it maps into AKSDB v2 entities/products.\nEach dataset page is keyed by ds_iid.",
+    "crumbs": [
+      "Datasets::datasets",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Datasets</span>"
+    ]
+  },
+  {
+    "objectID": "datasets/datasets--index.html#what-every-dataset-page-should-include",
+    "href": "datasets/datasets--index.html#what-every-dataset-page-should-include",
+    "title": "11  Datasets",
+    "section": "11.2 What every dataset page should include",
+    "text": "11.2 What every dataset page should include\n\nSummary + citation\nAccess + license\nProvenance (who, when, how acquired)\nPrimary artifacts (tables/files/layers)\nKnown issues and QC notes\nMapping links (crosswalks used)",
+    "crumbs": [
+      "Datasets::datasets",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Datasets</span>"
+    ]
+  },
+  {
+    "objectID": "datasets/datasets--index.html#dataset-pages",
+    "href": "datasets/datasets--index.html#dataset-pages",
+    "title": "11  Datasets",
+    "section": "11.3 Dataset pages",
+    "text": "11.3 Dataset pages\n\nMTJ Permafrost\nKPU GAAR",
+    "crumbs": [
+      "Datasets::datasets",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Datasets</span>"
+    ]
+  },
+  {
+    "objectID": "products/products--index.html",
+    "href": "products/products--index.html",
+    "title": "12  Products",
+    "section": "",
+    "text": "12.1 What a product is\nA product is a harmonized, documented output intended for reuse: - tables, - geospatial layers, - derived indicators, - releases of cleaned/harmonized datasets.\nProducts are keyed by product_slug (human-friendly), but should also carry canonical IDs and checksums.",
+    "crumbs": [
+      "Products::products",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Products</span>"
+    ]
+  },
+  {
+    "objectID": "products/products--index.html#what-every-product-page-should-include",
+    "href": "products/products--index.html#what-every-product-page-should-include",
+    "title": "12  Products",
+    "section": "12.2 What every product page should include",
+    "text": "12.2 What every product page should include\n\nWhat it contains (schema + files)\nIntended use + non-use cases\nInputs (datasets + versions)\nMapping rules used\nValidation checks passed\nChange notes across releases",
+    "crumbs": [
+      "Products::products",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Products</span>"
+    ]
+  },
+  {
+    "objectID": "products/products--index.html#start-here",
+    "href": "products/products--index.html#start-here",
+    "title": "12  Products",
+    "section": "12.3 Start here",
+    "text": "12.3 Start here\nCreate product pages once: - mapping rules stabilize, - validation checks are defined, - and you are ready to publish/release.",
+    "crumbs": [
+      "Products::products",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Products</span>"
+    ]
+  },
+  {
+    "objectID": "mappings/mappings--index.html",
+    "href": "mappings/mappings--index.html",
+    "title": "13  Mappings",
+    "section": "",
+    "text": "13.1 Why mapping docs matter\nMappings are where “interpretation” happens: - column crosswalks, - unit conversions, - depth/horizon rules, - categorical harmonization, - join keys and entity resolution.\nThese docs make harmonized products defensible and reproducible.",
+    "crumbs": [
+      "Mappings::mappings",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Mappings</span>"
+    ]
+  },
+  {
+    "objectID": "mappings/mappings--index.html#what-a-mapping-doc-should-include",
+    "href": "mappings/mappings--index.html#what-a-mapping-doc-should-include",
+    "title": "13  Mappings",
+    "section": "13.2 What a mapping doc should include",
+    "text": "13.2 What a mapping doc should include\n\nInputs and outputs (tables/fields)\nRule statements (human-readable)\nEdge cases and precedence rules\nExamples (before/after)\nVersion notes (what changed and why)",
+    "crumbs": [
+      "Mappings::mappings",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Mappings</span>"
+    ]
+  },
+  {
+    "objectID": "mappings/mappings--index.html#typical-mapping-topics",
+    "href": "mappings/mappings--index.html#typical-mapping-topics",
+    "title": "13  Mappings",
+    "section": "13.3 Typical mapping topics",
+    "text": "13.3 Typical mapping topics\n\nSource → canonical field crosswalks\nControlled vocab normalization\nID assignment rules\nChecksums/manifests generated per run",
+    "crumbs": [
+      "Mappings::mappings",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Mappings</span>"
+    ]
+  },
+  {
+    "objectID": "standards/standards--index.html",
+    "href": "standards/standards--index.html",
+    "title": "14  Standards",
+    "section": "",
+    "text": "14.1 Purpose\nStandards provide interoperability and citation-quality metadata.\nThis section documents: - which standards you reference, - what parts you implement, - how registry fields map to them, - where you intentionally diverge (and why).",
+    "crumbs": [
+      "Standards::standards",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Standards</span>"
+    ]
+  },
+  {
+    "objectID": "standards/standards--index.html#pages",
+    "href": "standards/standards--index.html#pages",
+    "title": "14  Standards",
+    "section": "14.2 Pages",
+    "text": "14.2 Pages\n\nEML\nDataCite\nCRediT\nCF Conventions",
+    "crumbs": [
+      "Standards::standards",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Standards</span>"
+    ]
+  },
+  {
+    "objectID": "standards/standards--index.html#practical-output",
+    "href": "standards/standards--index.html#practical-output",
+    "title": "14  Standards",
+    "section": "14.3 Practical output",
+    "text": "14.3 Practical output\nThe goal is to support: - a strong CITATION.cff, - dataset/product citations, - machine-readable exports (where appropriate), - consistent attribution via roles.",
+    "crumbs": [
+      "Standards::standards",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Standards</span>"
+    ]
+  },
+  {
+    "objectID": "governance/governance--index.html",
+    "href": "governance/governance--index.html",
+    "title": "15  Governance",
+    "section": "",
+    "text": "15.1 What governance covers\nGovernance defines: - how you propose changes, - how you version them, - how you deprecate safely, - what guarantees users can rely on.\nThis is what keeps AKSDB v2 coherent as it grows.",
+    "crumbs": [
+      "Governance::governance",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Governance</span>"
+    ]
+  },
+  {
+    "objectID": "governance/governance--index.html#pages",
+    "href": "governance/governance--index.html#pages",
+    "title": "15  Governance",
+    "section": "15.2 Pages",
+    "text": "15.2 Pages\n\nSchema versioning\nAdding a field\nDeprecating a field\nGlossary rules\nRoles and attributes",
+    "crumbs": [
+      "Governance::governance",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Governance</span>"
+    ]
+  },
+  {
+    "objectID": "governance/governance--index.html#governance-principle-default",
+    "href": "governance/governance--index.html#governance-principle-default",
+    "title": "15  Governance",
+    "section": "15.3 Governance principle (default)",
+    "text": "15.3 Governance principle (default)\nPrefer: - additive changes, - explicit deprecations, - compatibility notes per release, over silent breaking changes.",
+    "crumbs": [
+      "Governance::governance",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Governance</span>"
+    ]
+  },
+  {
+    "objectID": "examples/examples--index.html",
+    "href": "examples/examples--index.html",
+    "title": "16  Examples",
+    "section": "",
+    "text": "16.1 What belongs here\nExamples are small, opinionated templates for: - adding a dataset page, - adding a product page, - writing a mapping doc, - defining a new controlled vocabulary, - running validation checks, - producing a release manifest (checksums + provenance).",
+    "crumbs": [
+      "Examples::examples",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Examples</span>"
+    ]
+  },
+  {
+    "objectID": "examples/examples--index.html#suggested-starter-examples",
+    "href": "examples/examples--index.html#suggested-starter-examples",
+    "title": "16  Examples",
+    "section": "16.2 Suggested starter examples",
+    "text": "16.2 Suggested starter examples\n\n“Add a dataset” template\n“Add a product” template\n“Mapping doc skeleton”\n“Registry row examples” (packages/entities/parties/roles)\n“Release checklist” (what must be true to publish)",
+    "crumbs": [
+      "Examples::examples",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Examples</span>"
+    ]
+  }
+]

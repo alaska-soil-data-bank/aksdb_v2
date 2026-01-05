@@ -1,4 +1,4 @@
-# EML responsibility roles controlled vocabulary
+# eml_responsibility_roles
 
 This controlled vocabulary enumerates the allowed **EML Party responsibility roles** (EML `RoleType`) used to describe how a person or organization is associated with a dataset or other resource (for example, author, originator, custodian/steward, distributor, and point of contact). Each row provides a stable AKSDB identifier (`concept_iid`) for joining and governance, and the exact EML machine value (`term_code`) that should be written into EML metadata.
 
@@ -6,7 +6,7 @@ The vocabulary also includes optional crosswalks to ISO 19115 `CI_RoleCode` valu
 
 ## Controlled vocabulary file
 
-- **Controlled vocabulary name / table name:** `eml_responsibility_roles_iso.csv`  
+- **Controlled vocabulary name / table name:** `/metadata/vocab/eml_responsibility_roles.csv`  
 - **Label:** EML responsibility roles
 
 ## Columns

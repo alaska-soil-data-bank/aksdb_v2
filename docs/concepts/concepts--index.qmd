@@ -15,18 +15,18 @@ Everything else in the docs assumes this mental model.
 
 ## The core chain
 
-### 1) IDs
+1) IDs
 **IDs** are canonical, stable identifiers for machines and long-term references.
 They should be:
 - unique,
 - immutable once published,
 - never “meaningful” in a way that invites reinterpretation.
 
-### 2) Slugs
+2) Slugs
 **Slugs** are human-friendly names used for URLs and docs navigation.
 They can change (with redirects / alias rules), but must never break ID-based references.
 
-### 3) Releases
+3) Releases
 A **release** is a named snapshot of:
 - schema,
 - vocab,
@@ -34,7 +34,7 @@ A **release** is a named snapshot of:
 - products (harmonized outputs),
 with explicit compatibility expectations.
 
-### 4) Checksums
+4) Checksums
 **Checksums** anchor trust:
 - detect unintended change,
 - support manifests,

@@ -1,0 +1,37 @@
+# credit_roles
+
+This controlled vocabulary enumerates the allowed **CRediT (Contributor Role Taxonomy)** contributor roles.
+
+The vocabulary uses a stable internal identifier (`concept_iid`) and a machine-friendly code (`term_code`) that can be used in structured metadata. The authoritative role descriptor pages are referenced via `exact_match_ids`.
+
+## Controlled vocabulary file
+
+- **Controlled vocabulary name / table name:** `/metadata/vocab/credit_roles.csv`  
+- **Label:** CRediT roles
+
+## Columns
+
+| Column label | Column name | Description |
+|---|---|---|
+| Concept identifier | `concept_iid` | Stable, project-minted identifier for the concept. Recommended pattern for this vocab: `aksdb:credit_role/<RoleCode>`. |
+| Preferred label | `pref_label` | Human-readable label for the role (as shown in CRediT). |
+| Term code | `term_code` | Machine-friendly role code (letters only) used for clean programmatic identifiers. |
+| Alternate labels | `alt_labels` | Optional synonyms / label variants. Multi-values are encoded as `{value1|value2|...}`. |
+| Definition | `definition` | Short definition of the role (from the authoritative CRediT role descriptors). |
+| Status | `status` | Governance status for the concept. Allowed values: `accepted`, `proposed`, `deprecated`, `draft`. |
+| Created | `created` | Date the row/concept was introduced to the vocabulary in ISO format `YYYY-MM-DD`. |
+| Modified | `modified` | Date the row/concept was last changed in ISO format `YYYY-MM-DD`. |
+| Scope note | `scope_note` | Optional usage guidance and boundaries for applying the role. |
+| Related identifiers | `related_ids` | Optional related concept identifiers (e.g., broader/narrower/hierarchical). Multi-values are encoded as `{value1|value2|...}`. |
+| Exact match identifiers | `exact_match_ids` | External identifier for the authoritative role descriptor (CRediT per-role URL). |
+| Close match identifiers | `close_match_ids` | Optional external identifiers for close matches (e.g., other role taxonomies). Multi-values are encoded as `{value1|value2|...}`. |
+| Replaced by | `replaced_by` | If `status=deprecated`, the `concept_iid` of the preferred replacement concept. |
+| Source | `source` | Human-readable documentation URL for the authority defining the vocabulary values (here: CRediT role descriptors). |
+| Note | `note` | Optional editorial notes and provenance details. Multi-values are encoded as `{value1|value2|...}`. |
+
+## References
+
+- CRediT role descriptors (authoritative list + definitions): https://credit.niso.org/contributor-roles-defined/
+- CRediT home (overview + role list): https://credit.niso.org/
+- Guidance on using/implementing CRediT: https://credit.niso.org/implementing-credit/
+- CRediT as an ANSI/NISO standard (background): https://casrai.org/credit/

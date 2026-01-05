@@ -1,0 +1,62 @@
+---
+title: "Getting Started"
+subtitle: "How to navigate, build, and publish AKSDB v2 documentation"
+---
+
+## What this book is
+
+This Quarto book is the documentation hub for **Alaska Soil Data Bank (AKSDB) project v2**.
+
+It explains:
+- the **core mental model** (IDs, slugs, releases, checksums),
+- the **metadata registry** (packages, entities, parties, roles),
+- controlled vocabularies and canonical terms,
+- dataset pages (per source dataset),
+- harmonized products (public outputs),
+- mappings/crosswalk rules,
+- standards alignment (EML, DataCite, CRediT),
+- governance (how change happens).
+
+## Where things live
+
+- `concepts/` — mental model (IDs/slugs/releases/checksums)
+- `registry/` — metadata registry tables + field-level documentation
+- `vocab/` — controlled vocabularies (enums, roles, status fields)
+- `glossary/` — canonical definitions (term pages)
+- `datasets/` — per-source dataset pages (keyed by `ds_iid`)
+- `products/` — harmonized outputs (keyed by `product_slug`)
+- `mapping/` (or `mappings/`) — crosswalks + transformation rules
+- `standards/` — EML / DataCite / CRediT references + mappings
+- `governance/` — versioning, deprecation, schema/doc change process
+- `examples/` — minimal worked examples and templates
+
+## Build the book locally
+
+From the repo root:
+
+```bash
+quarto check
+quarto render
+```
+
+The _quarto.yml currently sets the output directory to htmls/
+
+## How to read and use this book (recommended path)
+
+1. Start with Concepts (IDs → slugs → releases → checksums)
+
+2. Read Registry to understand the “metadata spine”
+
+3. Use Glossary and Vocab as references while reading datasets/products
+
+4. Consult Mapping and Standards when publishing or extending outputs
+
+5. Use Governance when proposing changes
+
+## Public vs private
+
+AKSDB v2 typically has:
+- a private workspace containing raw/private data and internal notes
+- a public repo containing harmonized outputs + documentation
+
+This book is written to support both, while making the public surface area reproducible and citable.

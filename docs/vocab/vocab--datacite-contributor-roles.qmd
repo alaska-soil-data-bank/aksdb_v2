@@ -1,0 +1,35 @@
+# datacite_contributor_roles
+
+This controlled vocabulary enumerates the allowed **DataCite Contributor `contributorType`** values (roles) that may be used to describe the contribution made by a person or organization in DataCite metadata.
+
+The vocabulary also includes optional crosswalks to the **CRediT contributor roles taxonomy** via `close_match_ids` when a reasonable “close match” exists.
+
+## Controlled vocabulary file
+
+- **Controlled vocabulary name / table name:** `/metadata/vocab/datacite_contributor_roles.csv`  
+- **Label:** DataCite contributor roles
+
+## Columns
+
+| Column label | Column name | Description |
+|---|---|---|
+| Concept identifier | `concept_iid` | Stable, project-minted identifier for the concept. Recommended pattern for this vocab: `aksdb:datacite_contributor_role/<ContributorTypeValue>`. |
+| Preferred label | `label` | Human-readable label for the role (typically the same as the DataCite controlled value, optionally spaced for readability). |
+| Term code | `term_code` | The exact machine-readable DataCite `contributorType` literal value that should be written into DataCite metadata. |
+| Definition | `definition` | Short definition of the role (sourced from DataCite controlled list definitions where available). |
+| Status | `status` | Governance status for the concept. Allowed values: `accepted`, `proposed`, `deprecated`, `draft`. |
+| Created | `created` | Date the row/concept was introduced to the vocabulary in ISO format `YYYY-MM-DD`. |
+| Modified | `modified` | Date the row/concept was last changed in ISO format `YYYY-MM-DD`. |
+| Scope note | `scope_note` | Optional usage guidance and boundaries for applying the role. |
+| Related identifiers | `related_ids` | Optional related concept identifiers (e.g., broader/narrower/hierarchical). Multi-values are encoded as `{value1|value2|...}`. |
+| Exact match identifiers | `exact_match_ids` | External identifier(s) for the authoritative DataCite XSD enumeration and/or per-term documentation anchor used as the source definition for `contributorType`. Multi-values are encoded as `{value1|value2|...}`. |
+| Close match identifiers | `close_match_ids` | External identifier(s) for close matches (e.g., CRediT role URLs) where applicable. Multi-values are encoded as `{value1|value2|...}`. |
+| Replaced by | `replaced_by` | If `status=deprecated`, the `concept_iid` of the preferred replacement concept. |
+| Source | `source` | Human-readable documentation URL for the authoritative definition of the vocabulary values (here: DataCite `contributorType` documentation). |
+| Note | `note` | Optional editorial notes and provenance details. Multi-values are encoded as `{value1|value2|...}`. |
+
+## References
+
+- DataCite `contributorType` controlled list definitions: https://datacite-metadata-schema.readthedocs.io/en/latest/appendices/appendix-1/contributorType/
+- DataCite `contributorType` schema enumeration (XSD include): https://schema.datacite.org/meta/kernel-4.6/include/datacite-contributorType-v4.xsd
+- CRediT role descriptors (used for close matches): https://credit.niso.org/contributor-roles-defined/
