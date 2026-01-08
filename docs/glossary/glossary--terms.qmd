@@ -1,4 +1,346 @@
-# Terms
+# Glossary
+
+## Overview
+
+This glossary (@sec-term-glossary) defines terms used throughout the AKSDB project documentation. It provides one or more externally sourced definitions of the term (`Definitions`), the specific usage of the term in the AKSDB project (`AKSDB usage`), and relevant comments, including associated terms and overlapping terms or concepts (`Comments`) and a list of relevant references or other relevant resources (`References/Other Resources`).
+
+---
+
+### **Concept** {#term-concept}
+
+**Definitions:**
+
+1. a general idea or notion, a universal; a mental representation of the essential or typical properties of something, considered without regard to the peculiar properties of any specific instance or example. Later often (frequently with of): the meaning that is realized by a word or expression. [@oxforduniversitypressOxfordEnglishDictionary2026]
+
+2. a unit of knowledge created by a unique combination of characteristics. [@earleyDAMADictionaryData2011] 
+
+**AKSDB usage:** 
+
+In AKSDB a concept is a stable unit "thing you mean", which is an abstract representation and distinct from the term used to define it. Terms can change without changing the concept and terms can have synonyms - concepts must be distinct. 
+
+**Comments:** 
+
+In concept-centric systems (thesauri/SKOS), a concept is the abstract meaning; terms/labels are the words/phrases used to denote it (preferred label, alternative label/synonym) [@w3cSKOSSimpleKnowledge2009]. ISO/IEC 11179 distinguishes the concept (“data element concept”) from its representation (“data element” with a value domain) [@isoISOIEC111792023]. “Term registry” often becomes ambiguous if it stores both concept records and labels—prefer naming it concept registry if one record = one concept.
+
+**References/Other Resources:**
+
+SKOS [@milesSKOSSimpleKnowledge2009]
+ISO/IEC 11179 Metadata Registries (MDR) Family [@isoISOIEC111792023]
+
+---
+
+### **Data** {#term-data}
+
+**Definitions:** 
+
+1. Facts represented as text, numbers, graphics, images, sound, or video. Data is the raw material used to represent information, or from which information can be derived (G. Everest, 2010) [@earleyDAMADictionaryData2011] 
+
+2. The individual facts that are out of context, and have no meaning by themselves. They are often referred to as raw data, such as [the decimal number] 123.45. Data have historically been defined a plural; datum is the singular form (Brackett, 2011). [@earleyDAMADictionaryData2011] 
+
+**AKSDB usage:** 
+
+Same as definitions above.
+
+**Comments:** 
+
+"Data become 'information' when analyzed and possibly combined with other data in order to extract meaning, and to provide context. The meaning of data can vary depending on its context. 'Data' includes, but is not limited to, 1) geospatial data 2) unstructured data, 3) structured data, etc. Information, as defined in OMB Circular A-130, means any communication or representation of knowledge such as facts, data, or opinions in any medium or form, including textual, numerical, graphic, cartographic, narrative, or audiovisual forms." [@generalservicesadministrationgsatechnologytranformationservicettsGlossaryFederalEnterprise2026]
+
+**References/Other Resources:**
+
+---
+
+### **Data dictionary** {#term-data-dictionary}
+
+**Definitions:** 
+
+1. a document that “defines and describes the elements of a dataset so that it can be understood and used at a later date” (often variable/field/column-focused) [@harvardmedicalschoolDataDictionaryData2026].
+
+2. any place where...technical terms and definitions are stored. Typically, data dictionaries are designed to store a limited set of available [metadata], concentrating on the names and definitions relating to the physical data and related objects...[@earleyDAMADictionaryData2011]
+
+3. A collection of metadata describing the contents, format, and structure of a database and the relationship between its elements, used for controlling access to and manipulation of the database. [@oxforduniversitypressOxfordEnglishDictionary2026]
+
+**AKSDB usage:** 
+
+A table/field-level technical reference, generated from CSV registries (e.g., `fields.csv`, `value_domains.csv`), rendered into docs.
+
+**Comments:** 
+
+Overlaps with metadata (technical + structural metadata). Differs from glossary/thesaurus in that a dictionary describes how a field is encoded (type/units/allowed values), not the broader concept system. In ecology-oriented metadata systems, the [“attribute” (variable) description](https://eml.ecoinformatics.org/eml-schema.html) includes name, definition, domain, coded values, missing values, etc.—functionally a data dictionary embedded in metadata [@EML_2019]. There are several broad types of data dictionaries: *active* (interacts with software environment to update metadata in real time), *integrated* (serves as a store for metadata for multiple software tools), and *passive* (requires user entry and update of metadata)[@earleyDAMADictionaryData2011]. Based on these classes, the AKSDB data dictionary should be considered a passive data dictionary requiring manual update (although the documentation for the data dictionary is automatically generated from the dictionary csvs themselves, those csvs must be manually updated).
+
+**References/Other Resources:**
+
+*Harvard Medical School - Longwood Research Data Management. [Data dictionary](https://datamanagement.hms.harvard.edu/collect-analyze/documentation-metadata/data-dictionary).*
+
+*Matthew B. Jones, Margaret O’Brien, Bryce Mecum, Carl Boettiger, Mark Schildhauer, Mitchell Maier, Timothy Whiteaker, Stevan Earl, Steven Chong. 2019. Ecological Metadata Language version 2.2.0. KNB Data Repository. doi:10.5063/F11834T2*
+
+*National Cancer Institute - Proteomic data commons. [Data dictionary](https://proteomic.datacommons.cancer.gov/data-dictionary/dictionary.html). {A very minimal data dictionary example}.*
+
+*Kristin Briney's [Create a Data Dictionary exercise](https://caltechlibrary.github.io/RDMworkbook/documentation.html#data-dictionary) in [The Research Data Management Workbook](https://authors.library.caltech.edu/records/z6czh-7zx60)*
+
+*Penn Libraries Research Data & Digital Scholarship's [Data Dictionary Blank Template](https://repository.upenn.edu/handle/20.500.14332/59354)*
+
+*Open Science Framework's [How to Make a Data Dictionary](https://help.osf.io/article/217-how-to-make-a-data-dictionary)*
+
+*ICPSR's [What is a codebook?](https://www.icpsr.umich.edu/web/ICPSR/cms/1983)*
+
+*Harvard Biomedical Data Management's [Metadata Worksheet](https://docs.google.com/document/d/1yOXCQa037_NSpqKuq5TL06gvjeeaReUCOL5HHkxyGWU/edit?tab=t.0#heading=h.2xlfe4oc725v)*
+
+---
+
+### **Data element** {#term-data-element}
+
+**Definitions:** 
+
+1. an item of data within a database or other collection of data. [@oxforduniversitypressOxfordEnglishDictionary2026]
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+
+### **Dictionary** {#term-dictionary}
+
+**Definitions:** 
+
+1. a collection of definitions for words, terms, and phrases that differentiate closely related words. [@earleyDAMADictionaryData2011]
+
+2. a book or electronic resource that lists the words of a language (typically in alphabetical order) and gives their meaning, or gives the equivalent words in a different language, often also providing information about pronunciation, origin, and usage. [@oxforduniversitypressOxfordEnglishDictionary2026]
+
+**AKSDB usage:** 
+
+In AKSDB this term is used in the context of [data dictionary](@term-data-dictionary)
+
+**Comments:** 
+
+None
+
+**References/Other Resources:**
+
+None
+
+---
+
+### **Glossary** {#term-glossary}
+
+**Definitions:** 
+
+1. ...a dictionary covering a limited subject area. [@earleyDAMADictionaryData2011]
+
+2. a collection of glosses; a list with explanations of abstruse, antiquated, dialectal, or technical terms; a partial dictionary. [@oxforduniversitypressOxfordEnglishDictionary2026]
+
+**AKSDB usage:** 
+
+Glossary = human-facing canonical definitions and usage notes for terms used in AKSDB documentation. 
+
+**Comments:** 
+
+May overlap with controlled vocabularies although the AKSDB glossary defines terms in use throughout the human-facing project documentation, whereas controlled vocabularies are machine-readable, offer even more brevity, and specify terms used in the data itself, not the project documentation. A glossary is a type of [dictionary](@term-dictionary).
+
+**References/Other Resources:**
+
+None
+
+---
+
+### **Metadata** {#term-metadata}
+
+**Definitions:** 
+
+1. metadata is “data about other data” / resource description used for discovery and management. [@dcmiDublinCoreMetadata2005]
+
+2. metadata as structured documentation for a dataset (content, meaning, provenance, access, variables, etc.) [@datadocumentationinitiativeddiallianceDDICodebook2012]
+
+3. Literally, "data about data"; data that defines and describes the characteristics of other data, used to improve both business and technical understanding of data and data-related processes. Because the term 'metadata' is a trademark of The Metadata Company, DAMA specifically uses the term *meta-data*. [@earleyDAMADictionaryData2011] 
+
+**AKSDB usage:** 
+
+The metadata in the AKSDB project consists of:....
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+
+### **Term** {#term-term}
+
+**Definitions:** 
+
+1. a word or phrase used in a precise sense in a particular subject or field, or by a particular group of people; a technical expression; a piece of jargon. [@oxforduniversitypressOxfordEnglishDictionary2026]
+
+2. more widely: any word or phrase expressing a particular idea or concept, or denoting a particular object; an expression (for something). [@oxforduniversitypressOxfordEnglishDictionary2026]
+
+**AKSDB usage:** 
+
+A term is a word or phrase used to denote a concept. 
+
+**Comments:** 
+
+Terms can have synonyms. There can be many terms to a single concept. Terms can change without changing the concept. *synonym*: label.
+
+**References/Other Resources:**
+ISO/IEC 11179 Metadata Registries (MDR) Family [@isoISOIEC111792023]
+
+---
+
+
+ontology, taxonomy, thesaurus - three forms of ??? where was that from? 
+
+---
+---
+
+### **Registry** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+---
+
+### **Catalog** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+---
+
+### **Semantic** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+---
+
+### **Element** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+---
+
+### **Data element** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+---
+
+### **Dictionary** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+---
+
+### **Catalog** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+
+---
+
+### **Taxonomy** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+
+#### **Data thesaurus** {#term-data-thesaurus}
+
+DEFINITION: ISO 25964 is the international standard for thesauri; it focuses on selecting concepts/terms and expressing relationships to form a thesaurus [@nisoISO25964International2026]. SKOS positions thesauri/taxonomies/classification schemes as “knowledge organization systems” with shared structure that can be published and linked.
+
+AKSDB USAGE: Data thesaurus = curated term system that supports indexing/search and synonym control across many datasets [@milesSKOSSimpleKnowledge2009].
+
+COMMENTS: A thesaurus is typically concept-centric (preferred labels + synonyms + broader/narrower/related), which overlaps with controlled vocabulary and can be expressed using SKOS. Less formal than an ontology (usually fewer typed relations/constraints)[@milesSKOSSimpleKnowledge2009].
+	
+REFERENCES: 
+
+International Organization for Standardization. (2011). ISO 25964-1: Information and documentation—Thesauri and interoperability with other vocabularies—Part 1. 
+
+Miles, A., & Bechhofer, S. (2009). SKOS Simple Knowledge Organization System Reference (W3C Recommendation). 
+
+---
+
+### **Term** {#term-term}
+
+**Definitions:** 
+
+**AKSDB usage:** 
+
+**Comments:** 
+
+**References/Other Resources:**
+
+---
+
+#### **Glossary** {#term-glossary}
+
+DEFINITION: A glossary is typically a curated list of terms with definitions and usage notes (often human-facing; not necessarily machine-actionable).
+
+AKSDB USAGE: Glossary = human-facing canonical definitions and usage notes for terms you use in docs (this page / section).
+
+COMMENTS: Overlaps with thesaurus/controlled vocab, but a glossary may not include synonyms/relations or stable identifiers.
+	
+REFERENCES: (Project-local; you may also cite ISO 25964 / SKOS if your glossary adopts their structure.). 
+
+Miles, A., & Bechhofer, S. (2009). SKOS Simple Knowledge Organization System Reference (W3C Recommendation).
+
+---
+
+| term | definitions | aksdb usage | synonyms-overlaps | comments | references |
+|------|-------------|-------------|-------------------|----------|------------|
+| Data dictionary | A document that “defines and describes the elements of a dataset so that it can be understood and used at a later date” (often variable/column-focused) [@harvardmedicalschoolDataDictionaryData2026]. | Data dictionary = table/field-level technical reference, generated from CSV registries (e.g., `fields.csv`, `value_domains.csv`), rendered into docs. | Overlaps with metadata (technical + structural metadata). Differs from glossary/thesaurus in that a dictionary describes how a field is encoded (type/units/allowed values), not the broader concept system. In ecology-oriented metadata systems, the [“attribute” (variable) description](https://eml.ecoinformatics.org/eml-schema.html) includes name, definition, domain, coded values, missing values, etc.—functionally a data dictionary embedded in metadata [@EML_2019]. **Add - more information on different conceptual types of data dictionary).** | - Harvard Medical School - Longwood Research Data Management. [Data dictionary](https://datamanagement.hms.harvard.edu/collect-analyze/documentation-metadata/data-dictionary).|
 
 #### **slug** {#term-slug}
 
@@ -15,3 +357,17 @@ DEFINITION:
 COMMENT:
 	
 REFERENCE: 
+
+#### **UUIDv7** {#sec-term-uuidv7}
+
+DEFINITION: 
+	
+COMMENT:
+	
+REFERENCE: 
+
+## References
+Briney, Kristin A. 2020. “Project Close-Out Checklist for Research Data”. May 19. https://doi.org/10.7907/yjph-sa32.
+
+Briney, Kristin A. 2023. “Leveling Up Data Management”. June 27. https://doi.org/10.7907/syk7-3z92.
+

@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -211,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../glossary/glossary--terms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Terms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
   </div>
 </li>
       </ul>
@@ -323,15 +323,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#columns" id="toc-columns" class="nav-link active" data-scroll-target="#columns"><span class="header-section-number">3.1</span> Columns</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -405,28 +397,265 @@ Notes
 <tbody>
 <tr class="odd">
 <td>Dataset concept ID</td>
-<td>dataset_id</td>
+<td><code>dataset_id</code></td>
 <td>string</td>
-<td><a href="../glossary/glossary--terms.html#term-uuidv4">UUIDv4</a></td>
+<td><a href="@sec-term-uuidv4">UUIDv4</a></td>
 <td>Stable identifier for the dataset concept across time (all releases/snapshots share the same dataset_id). Enables stable joins and lineage even if names/slugs change (though <code>ds_iid</code> should be immutable too). For a given <code>ds_iid</code>, <code>dataset_id</code> must be consistent across all rows. <em>Example: <code>550e8400-e29b-41d4-a716-446655440000</code></em></td>
 </tr>
 <tr class="even">
-<td>Dataset handle (slug)</td>
-<td>ds_iid</td>
+<td>Dataset handle <a href="@sec-term-slug">(slug)</a></td>
+<td><code>ds_iid</code></td>
 <td>string</td>
-<td><code>^[a-z0-9]+(-[a-z0-9]+)*$</code></td>
-<td>Immutable, human-readable dataset handle used in scripting and folder naming.</td>
+<td>REGEX:<code>^[a-z0-9]+(-[a-z0-9]+)*$</code></td>
+<td>Immutable, human-readable dataset handle used in scripting and folder naming. Stable, memorable reference to dataset concept (e.g., in pipelines, CLIs, configuration). Must be globally unique across the registry; never reused. Must not change for a given <code>dataset_id</code>. <em>Example: <code>nrcs-nasis-pedons-ak</code></em></td>
+</tr>
+<tr class="odd">
+<td>Release (snapshot) ID</td>
+<td>release_id</td>
+<td>string</td>
+<td>UUID (recommend UUIDv7)</td>
+<td>Unique identifier for a frozen snapshot of a dataset at a point in time.</td>
+</tr>
+<tr class="even">
+<td>- Must be a valid UUID.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Release (snapshot) slug</td>
+<td>release_slug</td>
+<td>string</td>
+<td>parseable slug (project convention)</td>
+<td>Human-readable identifier for the snapshot, typically derived from ds_iid + dates + internal counter.</td>
+</tr>
+<tr class="even">
+<td>- Must be unique within the registry.<br><br><strong>Examples:</strong> - <code>nrcs-nasis-pedons-ak--ing20251231--r003</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Title</td>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Human-readable dataset/release title appropriate for citation.</td>
+</tr>
+<tr class="even">
+<td>Abstract</td>
+<td>abstract</td>
+<td>string</td>
+<td></td>
+<td>Short description of what the dataset/release contains and why it exists.</td>
+</tr>
+<tr class="odd">
+<td>Purpose</td>
+<td>purpose</td>
+<td>string</td>
+<td></td>
+<td>Optional statement of intended use / motivation (helpful for EML-style metadata).</td>
+</tr>
+<tr class="even">
+<td>Source organization</td>
+<td>source_org</td>
+<td>string</td>
+<td></td>
+<td>Organization responsible for producing or stewarding the upstream dataset.</td>
+</tr>
+<tr class="odd">
+<td>Source citation</td>
+<td>source_citation</td>
+<td>string</td>
+<td></td>
+<td>Preferred citation text for the upstream dataset (include DOI if available).</td>
+</tr>
+<tr class="even">
+<td>Landing page URL</td>
+<td>landing_page_url</td>
+<td>string</td>
+<td></td>
+<td>Public landing page for the dataset or release (repository record, project page).</td>
+</tr>
+<tr class="odd">
+<td>DOI</td>
+<td>doi</td>
+<td>string</td>
+<td></td>
+<td>DOI for the dataset release/version, if minted.</td>
+</tr>
+<tr class="even">
+<td>EML package identifier</td>
+<td>eml_packageId</td>
+<td>string</td>
+<td></td>
+<td>Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC).</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>repo_scope</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>repo_identifier</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Repository identifiers</td>
+<td>repo_revision</td>
+<td>string</td>
+<td></td>
+<td>Optional split fields for package identification/versioning within a repository.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>coverage_start</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Coverage window</td>
+<td>coverage_end</td>
+<td>date or string</td>
+<td><code>YYYY-MM-DD</code> (preferred) or <code>YYYY</code>/<code>YYYY-MM</code> if partial</td>
+<td>Temporal extent of the observations represented in this release (not ingest date).</td>
+</tr>
+<tr class="even">
+<td>Published/updated date (upstream)</td>
+<td>published_date</td>
+<td>date</td>
+<td></td>
+<td>Provider-reported publication or last-updated date for the upstream dataset snapshot.</td>
+</tr>
+<tr class="odd">
+<td>Ingest date</td>
+<td>ingest_date</td>
+<td>date</td>
+<td></td>
+<td>Date this snapshot was frozen/ingested into your harmonization pipeline.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>geo_description</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>west</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>east</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>south</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Spatial coverage (bbox + description)</td>
+<td>north</td>
+<td>string + float</td>
+<td></td>
+<td>Overall spatial footprint/description for the release; bbox coordinates in decimal degrees.</td>
+</tr>
+<tr class="odd">
+<td>Spatial reference</td>
+<td>spatial_reference</td>
+<td>string</td>
+<td></td>
+<td>EPSG code, WKT, or other SRS description if relevant.</td>
+</tr>
+<tr class="even">
+<td>License</td>
+<td>license</td>
+<td>string</td>
+<td></td>
+<td>License identifier (prefer SPDX where possible).</td>
+</tr>
+<tr class="odd">
+<td>Intellectual rights / usage constraints</td>
+<td>intellectual_rights</td>
+<td>string</td>
+<td></td>
+<td>Free-text rights statement when a standard license is not sufficient.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>methods_summary</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Methods &amp; processing</td>
+<td>processing_summary</td>
+<td>string</td>
+<td></td>
+<td>High-level methods and any key processing steps performed for this release.</td>
+</tr>
+<tr class="even">
+<td>Upstream lineage</td>
+<td>upstream_release_ids</td>
+<td>string</td>
+<td><code>&amp;#124;</code>-separated list of <code>release_id</code></td>
+<td>Release IDs that this release derives from or depends on (lineage).</td>
+</tr>
+<tr class="odd">
+<td>File checksum manifest path</td>
+<td>file_manifest_path</td>
+<td>string</td>
+<td></td>
+<td>Relative path (within release folder) to the per-file checksum manifest (e.g., checksums.sha256).</td>
+</tr>
+<tr class="even">
+<td>Dataset fingerprint (manifest hash)</td>
+<td>manifest_sha256</td>
+<td>string</td>
+<td>sha256 hex</td>
+<td>SHA-256 of the checksum manifest file.</td>
+</tr>
+<tr class="odd">
+<td>File count</td>
+<td>file_count</td>
+<td>int</td>
+<td></td>
+<td>Number of files/entities included in this release.</td>
+</tr>
+<tr class="even">
+<td>Total bytes</td>
+<td>total_bytes</td>
+<td>int</td>
+<td></td>
+<td>Sum of size_bytes across entities for this release.</td>
+</tr>
+<tr class="odd">
+<td>Notes</td>
+<td>notes</td>
+<td>string</td>
+<td></td>
+<td>Free-text notes, known limitations, quirks, etc.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Must be globally unique across the registry; never reused.<br><br><strong>Validation rules:</strong> - Must match regex.</li>
-<li>Must be unique across all <code>packages</code> rows (recommended).</li>
-<li>Must not change for a given <code>dataset_id</code>.<br><br><strong>Examples:</strong> - Valid: <code>nrcs-nasis-pedons-ak</code></li>
-<li>Invalid: <code>NRCS_NASIS_AK</code> — uppercase/underscore | | Release (snapshot) ID | release_id | string | UUID (recommend UUIDv7) | Unique identifier for a frozen snapshot of a dataset at a point in time. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Unique identifier for a frozen snapshot of a dataset at a point in time.<br><br><strong>Purpose:</strong> The join key for all release-scoped metadata: entities/files, roles, QA/QC, derived products.<br><br><strong>Validation rules:</strong> - Must be unique within <code>packages</code>.</li>
-<li>Must be a valid UUID. | | Release (snapshot) slug | release_slug | string | parseable slug (project convention) | Human-readable identifier for the snapshot, typically derived from ds_iid + dates + internal counter. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Human-readable identifier for the snapshot, typically derived from <code>ds_iid</code> + dates + internal counter.<br><br><strong>Purpose:</strong> Readable folder names and provenance in logs/artifacts.<br><br><strong>Validation rules:</strong> - Must start with <code>ds_iid</code> (recommended).</li>
-<li>Must be unique within the registry.<br><br><strong>Examples:</strong> - <code>nrcs-nasis-pedons-ak--ing20251231--r003</code> | | Title | title | string | | Human-readable dataset/release title appropriate for citation. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Human-readable dataset/release title appropriate for citation. | | Abstract | abstract | string | | Short description of what the dataset/release contains and why it exists. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Short description of what the dataset/release contains and why it exists. | | Purpose | purpose | string | | Optional statement of intended use / motivation (helpful for EML-style metadata). | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Optional statement of intended use / motivation (helpful for EML-style metadata). | | Source organization | source_org | string | | Organization responsible for producing or stewarding the upstream dataset. | <strong>Required:</strong> recommended yes<br><br><strong>Definition:</strong> Organization responsible for producing or stewarding the upstream dataset. | | Source citation | source_citation | string | | Preferred citation text for the upstream dataset (include DOI if available). | <strong>Required:</strong> recommended yes<br><br><strong>Definition:</strong> Preferred citation text for the upstream dataset (include DOI if available). | | Landing page URL | landing_page_url | string | | Public landing page for the dataset or release (repository record, project page). | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Public landing page for the dataset or release (repository record, project page). | | DOI | doi | string | | DOI for the dataset release/version, if minted. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> DOI for the dataset release/version, if minted. | | EML package identifier | eml_packageId | string | | Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC). | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Repository-specific EML package ID if publishing to an EML-based repository (e.g., EDI/ADC). | | | repo_scope | | | | | | | repo_identifier | | | | | | Repository identifiers | repo_revision | string | | Optional split fields for package identification/versioning within a repository. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Optional split fields for package identification/versioning within a repository. | | | coverage_start | | | | | | Coverage window | coverage_end | date or string | <code>YYYY-MM-DD</code> (preferred) or <code>YYYY</code>/<code>YYYY-MM</code> if partial | Temporal extent of the observations represented in this release (not ingest date). | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Temporal extent of the <em>observations</em> represented in this release (not ingest date). | | Published/updated date (upstream) | published_date | date | | Provider-reported publication or last-updated date for the upstream dataset snapshot. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Provider-reported publication or last-updated date for the upstream dataset snapshot. | | Ingest date | ingest_date | date | | Date this snapshot was frozen/ingested into your harmonization pipeline. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Date this snapshot was frozen/ingested into your harmonization pipeline. | | | geo_description | | | | | | | west | | | | | | | east | | | | | | | south | | | | | | Spatial coverage (bbox + description) | north | string + float | | Overall spatial footprint/description for the release; bbox coordinates in decimal degrees. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Overall spatial footprint/description for the release; bbox coordinates in decimal degrees. | | Spatial reference | spatial_reference | string | | EPSG code, WKT, or other SRS description if relevant. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> EPSG code, WKT, or other SRS description if relevant. | | License | license | string | | License identifier (prefer SPDX where possible). | <strong>Required:</strong> recommended yes<br><br><strong>Definition:</strong> License identifier (prefer SPDX where possible). | | Intellectual rights / usage constraints | intellectual_rights | string | | Free-text rights statement when a standard license is not sufficient. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Free-text rights statement when a standard license is not sufficient. | | | methods_summary | | | | | | Methods &amp; processing | processing_summary | string | | High-level methods and any key processing steps performed for this release. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> High-level methods and any key processing steps performed for this release. | | Upstream lineage | upstream_release_ids | string | <code>&amp;#124;</code>-separated list of <code>release_id</code> | Release IDs that this release derives from or depends on (lineage). | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Release IDs that this release derives from or depends on (lineage). | | File checksum manifest path | file_manifest_path | string | | Relative path (within release folder) to the per-file checksum manifest (e.g., checksums.sha256). | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Relative path (within release folder) to the per-file checksum manifest (e.g., <code>checksums.sha256</code>). | | Dataset fingerprint (manifest hash) | manifest_sha256 | string | sha256 hex | SHA-256 of the checksum manifest file. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> SHA-256 of the checksum manifest file. Represents the integrity of the entire release contents. | | File count | file_count | int | | Number of files/entities included in this release. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Number of files/entities included in this release. | | Total bytes | total_bytes | int | | Sum of size_bytes across entities for this release. | <strong>Required:</strong> yes<br><br><strong>Definition:</strong> Sum of <code>size_bytes</code> across entities for this release. | | Notes | notes | string | | Free-text notes, known limitations, quirks, etc. | <strong>Required:</strong> no<br><br><strong>Definition:</strong> Free-text notes, known limitations, quirks, etc. |</li>
-</ul>
 
 
 </section>

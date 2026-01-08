@@ -6,9 +6,9 @@ project:
 book:
   title: "Alaska Soil Data Bank (AKSDB) v2 Documentation"
   author: "Nic Jelinski"
-  date: "01JAN2026"
+  date: "05JAN2026"
   cover-image: "aksdb-badge-02.png"
-  number: "1.0"
+  number: "1.1"
   #navbar: 
     #right: 
       #- icon: cc-circle
@@ -82,11 +82,12 @@ book:
     # - further-opportunities.qmd
     # - references.qmd
 
-bibliography: references.bib
+bibliography: aksdb_v2.bib
 
 format:
   html:
     theme: cosmo
+    toc: false
     number-depth: 2
     number-sections: true
   pdf:
