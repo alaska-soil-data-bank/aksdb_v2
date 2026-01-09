@@ -477,6 +477,20 @@ div.csl-indent {
 <p><strong>References/Other Resources:</strong></p>
 <hr>
 </section>
+<section id="term-registry" class="level3">
+<h3 class="anchored" data-anchor-id="term-registry"><strong>Registry</strong></h3>
+<p><strong>Definitions:</strong></p>
+<ol type="1">
+<li><p>generally, a permanent collection of data related to some topic or collected through some process <span class="citation" data-cites="earleyDAMADictionaryData2011">(<a href="#ref-earleyDAMADictionaryData2011" role="doc-biblioref">Earley 2011</a>)</span></p></li>
+<li><p>in metadata management, an application which stores metadata for querying…<span class="citation" data-cites="earleyDAMADictionaryData2011">(<a href="#ref-earleyDAMADictionaryData2011" role="doc-biblioref">Earley 2011</a>)</span></p></li>
+<li><p>a registry that stores information about data elements and associated concepts (e.g., data element concepts, conceptual domains, value domains). <span class="citation" data-cites="isoISOIEC111792023">(<a href="#ref-isoISOIEC111792023" role="doc-biblioref">ISO 2023</a>)</span></p></li>
+</ol>
+<p><strong>AKSDB usage:</strong> The AKSDB metadat registry is the authoritative tables (CSVs) that collectively define identifiers, terms/concepts, fields, domains, mappings, and releases.</p>
+<p><strong>Comments:</strong> The AKSDB registry is the official system-of-record; any associated docs are a presentation layer. A registry can be “semantic” (concepts) without describing physical storage (ISO 11179 explicitly separates semantic registry objects from physical tables/columns). <span class="citation" data-cites="isoISOIEC111792023">(<a href="#ref-isoISOIEC111792023" role="doc-biblioref">ISO 2023</a>)</span></p>
+<p><strong>References/Other Resources:</strong></p>
+<p>International Organization for Standardization. (n.d.). ISO/IEC 11179-3 (Metadata registries). <span class="citation" data-cites="isoISOIEC111792023">(<a href="#ref-isoISOIEC111792023" role="doc-biblioref">ISO 2023</a>)</span></p>
+<hr>
+</section>
 <section id="term-term" class="level3">
 <h3 class="anchored" data-anchor-id="term-term"><strong>Term</strong></h3>
 <p><strong>Definitions:</strong></p>
@@ -490,14 +504,24 @@ div.csl-indent {
 <p>Terms can have synonyms. There can be many terms to a single concept. Terms can change without changing the concept. <em>synonym</em>: label.</p>
 <p><strong>References/Other Resources:</strong> ISO/IEC 11179 Metadata Registries (MDR) Family <span class="citation" data-cites="isoISOIEC111792023">(<a href="#ref-isoISOIEC111792023" role="doc-biblioref">ISO 2023</a>)</span></p>
 <hr>
-<p>ontology, taxonomy, thesaurus - three forms of ??? where was that from?</p>
 </section>
-<section id="term-term" class="level3">
-<h3 class="anchored" data-anchor-id="term-term"><strong>Registry</strong></h3>
+<section id="term-value-domain" class="level3">
+<h3 class="anchored" data-anchor-id="term-value-domain"><strong>Value domain</strong></h3>
 <p><strong>Definitions:</strong></p>
+<ol type="1">
+<li>a value domain is the permitted set/range of values for representing a concept (including enumerations and ranges). <span class="citation" data-cites="isoISOIEC111792023">(<a href="#ref-isoISOIEC111792023" role="doc-biblioref">ISO 2023</a>)</span></li>
+</ol>
 <p><strong>AKSDB usage:</strong></p>
+<p>In AKSDB, the value domain is the “how it’s represented” rule set: datatype, units, valid range, code list, missing codes, precision/scale rules. This complements concept (meaning) with representation constraints.</p>
 <p><strong>Comments:</strong></p>
+<p>The EML attribute supports enumerated domains, missing-value definitions, etc., as part of attribute description. <span class="citation" data-cites="EML_2019">(<a href="#ref-EML_2019" role="doc-biblioref">Jones et al. 2019</a>)</span></p>
 <p><strong>References/Other Resources:</strong></p>
+<p>International Organization for Standardization. (ISO/IEC 11179 family overview).</p>
+<p>Ecological Metadata Language. (n.d.). Enumerated domain (eml-attribute).</p>
+<hr>
+<p>ontology, taxonomy, thesaurus - three forms of ??? where was that from?</p>
+<hr>
+<hr>
 </section>
 <section id="term-term" class="level3">
 <h3 class="anchored" data-anchor-id="term-term"><strong>Catalog</strong></h3>

@@ -165,6 +165,25 @@ The metadata in the AKSDB project consists of:....
 
 ---
 
+### **Registry** {#term-registry}
+
+**Definitions:** 
+
+1. generally, a permanent collection of data related to some topic or collected through some process [@earleyDAMADictionaryData2011]
+
+2. in metadata management, an application which stores metadata for querying...[@earleyDAMADictionaryData2011]
+
+3. a registry that stores information about data elements and associated concepts (e.g., data element concepts, conceptual domains, value domains). [@isoISOIEC111792023]
+
+**AKSDB usage:** The AKSDB metadat registry is the authoritative tables (CSVs) that collectively define identifiers, terms/concepts, fields, domains, mappings, and releases.
+
+**Comments:** The AKSDB registry is the official system-of-record; any associated docs are a presentation layer. A registry can be “semantic” (concepts) without describing physical storage (ISO 11179 explicitly separates semantic registry objects from physical tables/columns). [@isoISOIEC111792023]
+
+**References/Other Resources:**
+
+International Organization for Standardization. (n.d.). ISO/IEC 11179-3 (Metadata registries). [@isoISOIEC111792023] 
+---
+
 ### **Term** {#term-term}
 
 **Definitions:** 
@@ -186,23 +205,33 @@ ISO/IEC 11179 Metadata Registries (MDR) Family [@isoISOIEC111792023]
 
 ---
 
+### **Value domain** {#term-value-domain}
+
+**Definitions:** 
+
+1. a value domain is the permitted set/range of values for representing a concept (including enumerations and ranges). [@isoISOIEC111792023]
+
+**AKSDB usage:** 
+
+In AKSDB, the value domain is the “how it’s represented” rule set: datatype, units, valid range, code list, missing codes, precision/scale rules. This complements concept (meaning) with representation constraints. 
+
+**Comments:** 
+
+The EML attribute supports enumerated domains, missing-value definitions, etc., as part of attribute description. [@EML_2019]
+
+**References/Other Resources:**
+
+International Organization for Standardization. (ISO/IEC 11179 family overview).
+
+Ecological Metadata Language. (n.d.). Enumerated domain (eml-attribute).
+
+---
+
 
 ontology, taxonomy, thesaurus - three forms of ??? where was that from? 
 
 ---
----
 
-### **Registry** {#term-term}
-
-**Definitions:** 
-
-**AKSDB usage:** 
-
-**Comments:** 
-
-**References/Other Resources:**
-
----
 ---
 
 ### **Catalog** {#term-term}
